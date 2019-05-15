@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1fd22cbe77cf454f977cb276d2d97cc4" Name="Diagram1">
+        <EntityTypeShape EntityType="bazaBankaModel.Klijent" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.Kredit_" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.Otplatna_tablica" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.Racun" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.Stednja" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.Tip_zaposlenika" Width="1.5" PointX="1.5" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.Transakcija" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.VrstaStednje" Width="1.5" PointX="3.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.Zaposlenik" Width="1.5" PointX="3.75" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.TekuciRacun" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.ZiroRacun" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <AssociationConnector Association="bazaBankaModel.FK_Kredit__Klijent" ManuallyRouted="false" />
+        <AssociationConnector Association="bazaBankaModel.FK_Racun_Klijent" ManuallyRouted="false" />
+        <AssociationConnector Association="bazaBankaModel.FK_Stednja_Klijent" ManuallyRouted="false" />
+        <AssociationConnector Association="bazaBankaModel.FK_Kredit__Zaposlenik" ManuallyRouted="false" />
+        <AssociationConnector Association="bazaBankaModel.FK_Otplatna_tablica_Kredit_" ManuallyRouted="false" />
+        <AssociationConnector Association="bazaBankaModel.FK_TekuciRacun_Racun1" ManuallyRouted="false" />
+        <AssociationConnector Association="bazaBankaModel.FK_Transakcija_Racun" ManuallyRouted="false" />
+        <AssociationConnector Association="bazaBankaModel.FK_Transakcija_Racun1" ManuallyRouted="false" />
+        <AssociationConnector Association="bazaBankaModel.FK_ZiroRacun_Racun" ManuallyRouted="false" />
+        <AssociationConnector Association="bazaBankaModel.FK_Stednja_VrstaStednje" ManuallyRouted="false" />
+        <AssociationConnector Association="bazaBankaModel.FK_Stednja_Zaposlenik" ManuallyRouted="false" />
+        <AssociationConnector Association="bazaBankaModel.FK_Zaposlenik_Tip_zaposlenika" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

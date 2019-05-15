@@ -1,0 +1,1015 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="bazaBankaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'bazaBanka.dbo.DevizniRacun' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="DevizniRacun">
+          <Property Name="IBAN" Type="varchar" MaxLength="21" />
+          <Property Name="Valuta" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <EntityType Name="Klijent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ime" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prezime" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OIB" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Kontakt" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StalnoZaposlenje" Type="bit" />
+          <Property Name="Primanja" Type="float" />
+          <Property Name="Adresa" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kredit_">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="DatumPocetka" Type="datetime" />
+          <Property Name="Glavnica" Type="float" Nullable="false" />
+          <Property Name="RokOtplate" Type="int" Nullable="false" />
+          <Property Name="Zaposlenik_id" Type="int" />
+          <Property Name="Klijent_id" Type="int" />
+          <Property Name="KamatnaStopa" Type="float" Nullable="false" />
+          <Property Name="NazivKredita" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Otplatna_tablica">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kamate" Type="float" Nullable="false" />
+          <Property Name="Anuitet" Type="float" Nullable="false" />
+          <Property Name="OtplatnaKvota" Type="float" Nullable="false" />
+          <Property Name="OstatakDuga" Type="float" Nullable="false" />
+          <Property Name="OtplaceniDio" Type="float" Nullable="false" />
+          <Property Name="Kredit_id" Type="int" />
+          <Property Name="BrojMjeseca" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Racun">
+          <Key>
+            <PropertyRef Name="IBAN" />
+          </Key>
+          <Property Name="BrojKartice" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Saldo" Type="float" Nullable="false" />
+          <Property Name="Blokiran" Type="int" />
+          <Property Name="Klijent_id" Type="int" />
+          <Property Name="IBAN" Type="varchar" MaxLength="21" Nullable="false" />
+          <Property Name="KontrolniBroj" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="PIN" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stednja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Glavnica" Type="float" Nullable="false" />
+          <Property Name="RokOrocenja" Type="int" Nullable="false" />
+          <Property Name="KonacanIznos" Type="float" Nullable="false" />
+          <Property Name="Vrsta_id" Type="int" />
+          <Property Name="Kamate" Type="float" Nullable="false" />
+          <Property Name="Zaposlenik_id" Type="int" />
+          <Property Name="RKS" Type="float" />
+          <Property Name="Klijent_id" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bazaBanka.dbo.TekuciRacun' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TekuciRacun">
+          <Key>
+            <PropertyRef Name="IBAN" />
+            <PropertyRef Name="DopustenoPrekoracenje" />
+            <PropertyRef Name="KamatePoPrekoracenju" />
+          </Key>
+          <Property Name="IBAN" Type="varchar" MaxLength="21" Nullable="false" />
+          <Property Name="DopustenoPrekoracenje" Type="float" Nullable="false" />
+          <Property Name="KamatePoPrekoracenju" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tip_zaposlenika">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Opis" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Transakcija">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DatumTransakcije" Type="datetime" Nullable="false" />
+          <Property Name="Saldo" Type="float" Nullable="false" />
+          <Property Name="SaljeID" Type="varchar" MaxLength="21" />
+          <Property Name="PrimaID" Type="varchar" MaxLength="21" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VrstaStednje">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="varchar" MaxLength="150" />
+          <Property Name="EKS" Type="float" />
+        </EntityType>
+        <EntityType Name="Zaposlenik">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ime" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prezime" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Adresa" Type="varchar" MaxLength="50" />
+          <Property Name="BrojTelefona" Type="varchar" MaxLength="50" />
+          <Property Name="KorisnickoIme" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tip_id" Type="int" />
+          <Property Name="Lozinka" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bazaBanka.dbo.ZiroRacun' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ZiroRacun">
+          <Key>
+            <PropertyRef Name="IBAN" />
+            <PropertyRef Name="KamatePoPozitivnomeSaldu" />
+          </Key>
+          <Property Name="IBAN" Type="varchar" MaxLength="21" Nullable="false" />
+          <Property Name="KamatePoPozitivnomeSaldu" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+error 6004: The table 'bazaBanka.dbo.DevizniRacun' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_DevizniRacun_Racun" />-->
+        <Association Name="FK_Kredit__Klijent">
+          <End Role="Klijent" Type="Self.Klijent" Multiplicity="0..1" />
+          <End Role="Kredit_" Type="Self.Kredit_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kredit_">
+              <PropertyRef Name="Klijent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kredit__Zaposlenik">
+          <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="0..1" />
+          <End Role="Kredit_" Type="Self.Kredit_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenik">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kredit_">
+              <PropertyRef Name="Zaposlenik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Otplatna_tablica_Kredit_">
+          <End Role="Kredit_" Type="Self.Kredit_" Multiplicity="0..1" />
+          <End Role="Otplatna_tablica" Type="Self.Otplatna_tablica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kredit_">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Otplatna_tablica">
+              <PropertyRef Name="Kredit_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Racun_Klijent">
+          <End Role="Klijent" Type="Self.Klijent" Multiplicity="0..1" />
+          <End Role="Racun" Type="Self.Racun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Racun">
+              <PropertyRef Name="Klijent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stednja_Klijent">
+          <End Role="Klijent" Type="Self.Klijent" Multiplicity="0..1" />
+          <End Role="Stednja" Type="Self.Stednja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stednja">
+              <PropertyRef Name="Klijent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stednja_VrstaStednje">
+          <End Role="VrstaStednje" Type="Self.VrstaStednje" Multiplicity="0..1" />
+          <End Role="Stednja" Type="Self.Stednja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VrstaStednje">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stednja">
+              <PropertyRef Name="Vrsta_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stednja_Zaposlenik">
+          <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="0..1" />
+          <End Role="Stednja" Type="Self.Stednja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenik">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stednja">
+              <PropertyRef Name="Zaposlenik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TekuciRacun_Racun1">
+          <End Role="Racun" Type="Self.Racun" Multiplicity="1" />
+          <End Role="TekuciRacun" Type="Self.TekuciRacun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racun">
+              <PropertyRef Name="IBAN" />
+            </Principal>
+            <Dependent Role="TekuciRacun">
+              <PropertyRef Name="IBAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transakcija_Racun">
+          <End Role="Racun" Type="Self.Racun" Multiplicity="0..1" />
+          <End Role="Transakcija" Type="Self.Transakcija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racun">
+              <PropertyRef Name="IBAN" />
+            </Principal>
+            <Dependent Role="Transakcija">
+              <PropertyRef Name="SaljeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transakcija_Racun1">
+          <End Role="Racun" Type="Self.Racun" Multiplicity="1" />
+          <End Role="Transakcija" Type="Self.Transakcija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racun">
+              <PropertyRef Name="IBAN" />
+            </Principal>
+            <Dependent Role="Transakcija">
+              <PropertyRef Name="PrimaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zaposlenik_Tip_zaposlenika">
+          <End Role="Tip_zaposlenika" Type="Self.Tip_zaposlenika" Multiplicity="0..1" />
+          <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tip_zaposlenika">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Zaposlenik">
+              <PropertyRef Name="Tip_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZiroRacun_Racun">
+          <End Role="Racun" Type="Self.Racun" Multiplicity="1" />
+          <End Role="ZiroRacun" Type="Self.ZiroRacun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racun">
+              <PropertyRef Name="IBAN" />
+            </Principal>
+            <Dependent Role="ZiroRacun">
+              <PropertyRef Name="IBAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="bazaBankaModelStoreContainer">
+          <EntitySet Name="Klijent" EntityType="Self.Klijent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kredit_" EntityType="Self.Kredit_" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Otplatna_tablica" EntityType="Self.Otplatna_tablica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Racun" EntityType="Self.Racun" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stednja" EntityType="Self.Stednja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tip_zaposlenika" EntityType="Self.Tip_zaposlenika" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transakcija" EntityType="Self.Transakcija" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VrstaStednje" EntityType="Self.VrstaStednje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zaposlenik" EntityType="Self.Zaposlenik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TekuciRacun" EntityType="Self.TekuciRacun" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TekuciRacun].[IBAN] AS [IBAN], 
+    [TekuciRacun].[DopustenoPrekoracenje] AS [DopustenoPrekoracenje], 
+    [TekuciRacun].[KamatePoPrekoracenju] AS [KamatePoPrekoracenju]
+    FROM [dbo].[TekuciRacun] AS [TekuciRacun]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ZiroRacun" EntityType="Self.ZiroRacun" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ZiroRacun].[IBAN] AS [IBAN], 
+    [ZiroRacun].[KamatePoPozitivnomeSaldu] AS [KamatePoPozitivnomeSaldu]
+    FROM [dbo].[ZiroRacun] AS [ZiroRacun]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Kredit__Klijent" Association="Self.FK_Kredit__Klijent">
+            <End Role="Klijent" EntitySet="Klijent" />
+            <End Role="Kredit_" EntitySet="Kredit_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kredit__Zaposlenik" Association="Self.FK_Kredit__Zaposlenik">
+            <End Role="Zaposlenik" EntitySet="Zaposlenik" />
+            <End Role="Kredit_" EntitySet="Kredit_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Otplatna_tablica_Kredit_" Association="Self.FK_Otplatna_tablica_Kredit_">
+            <End Role="Kredit_" EntitySet="Kredit_" />
+            <End Role="Otplatna_tablica" EntitySet="Otplatna_tablica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Racun_Klijent" Association="Self.FK_Racun_Klijent">
+            <End Role="Klijent" EntitySet="Klijent" />
+            <End Role="Racun" EntitySet="Racun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stednja_Klijent" Association="Self.FK_Stednja_Klijent">
+            <End Role="Klijent" EntitySet="Klijent" />
+            <End Role="Stednja" EntitySet="Stednja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stednja_VrstaStednje" Association="Self.FK_Stednja_VrstaStednje">
+            <End Role="VrstaStednje" EntitySet="VrstaStednje" />
+            <End Role="Stednja" EntitySet="Stednja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stednja_Zaposlenik" Association="Self.FK_Stednja_Zaposlenik">
+            <End Role="Zaposlenik" EntitySet="Zaposlenik" />
+            <End Role="Stednja" EntitySet="Stednja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TekuciRacun_Racun1" Association="Self.FK_TekuciRacun_Racun1">
+            <End Role="Racun" EntitySet="Racun" />
+            <End Role="TekuciRacun" EntitySet="TekuciRacun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transakcija_Racun" Association="Self.FK_Transakcija_Racun">
+            <End Role="Racun" EntitySet="Racun" />
+            <End Role="Transakcija" EntitySet="Transakcija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transakcija_Racun1" Association="Self.FK_Transakcija_Racun1">
+            <End Role="Racun" EntitySet="Racun" />
+            <End Role="Transakcija" EntitySet="Transakcija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zaposlenik_Tip_zaposlenika" Association="Self.FK_Zaposlenik_Tip_zaposlenika">
+            <End Role="Tip_zaposlenika" EntitySet="Tip_zaposlenika" />
+            <End Role="Zaposlenik" EntitySet="Zaposlenik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZiroRacun_Racun" Association="Self.FK_ZiroRacun_Racun">
+            <End Role="Racun" EntitySet="Racun" />
+            <End Role="ZiroRacun" EntitySet="ZiroRacun" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bazaBankaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Klijent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OIB" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kontakt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StalnoZaposlenje" Type="Boolean" />
+          <Property Name="Primanja" Type="Double" />
+          <Property Name="Adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Kredit_" Relationship="Self.FK_Kredit__Klijent" FromRole="Klijent" ToRole="Kredit_" />
+          <NavigationProperty Name="Racun" Relationship="Self.FK_Racun_Klijent" FromRole="Klijent" ToRole="Racun" />
+          <NavigationProperty Name="Stednja" Relationship="Self.FK_Stednja_Klijent" FromRole="Klijent" ToRole="Stednja" />
+        </EntityType>
+        <EntityType Name="Kredit_">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="DatumPocetka" Type="DateTime" Precision="3" />
+          <Property Name="Glavnica" Type="Double" Nullable="false" />
+          <Property Name="RokOtplate" Type="Int32" Nullable="false" />
+          <Property Name="Zaposlenik_id" Type="Int32" />
+          <Property Name="Klijent_id" Type="Int32" />
+          <Property Name="KamatnaStopa" Type="Double" Nullable="false" />
+          <Property Name="NazivKredita" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Klijent" Relationship="Self.FK_Kredit__Klijent" FromRole="Kredit_" ToRole="Klijent" />
+          <NavigationProperty Name="Zaposlenik" Relationship="Self.FK_Kredit__Zaposlenik" FromRole="Kredit_" ToRole="Zaposlenik" />
+          <NavigationProperty Name="Otplatna_tablica" Relationship="Self.FK_Otplatna_tablica_Kredit_" FromRole="Kredit_" ToRole="Otplatna_tablica" />
+        </EntityType>
+        <EntityType Name="Otplatna_tablica">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kamate" Type="Double" Nullable="false" />
+          <Property Name="Anuitet" Type="Double" Nullable="false" />
+          <Property Name="OtplatnaKvota" Type="Double" Nullable="false" />
+          <Property Name="OstatakDuga" Type="Double" Nullable="false" />
+          <Property Name="OtplaceniDio" Type="Double" Nullable="false" />
+          <Property Name="Kredit_id" Type="Int32" />
+          <Property Name="BrojMjeseca" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kredit_" Relationship="Self.FK_Otplatna_tablica_Kredit_" FromRole="Otplatna_tablica" ToRole="Kredit_" />
+        </EntityType>
+        <EntityType Name="Racun">
+          <Key>
+            <PropertyRef Name="IBAN" />
+          </Key>
+          <Property Name="BrojKartice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Saldo" Type="Double" Nullable="false" />
+          <Property Name="Blokiran" Type="Int32" />
+          <Property Name="Klijent_id" Type="Int32" />
+          <Property Name="IBAN" Type="String" MaxLength="21" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KontrolniBroj" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PIN" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Klijent" Relationship="Self.FK_Racun_Klijent" FromRole="Racun" ToRole="Klijent" />
+          <NavigationProperty Name="TekuciRacun" Relationship="Self.FK_TekuciRacun_Racun1" FromRole="Racun" ToRole="TekuciRacun" />
+          <NavigationProperty Name="Transakcija" Relationship="Self.FK_Transakcija_Racun" FromRole="Racun" ToRole="Transakcija" />
+          <NavigationProperty Name="Transakcija1" Relationship="Self.FK_Transakcija_Racun1" FromRole="Racun" ToRole="Transakcija" />
+          <NavigationProperty Name="ZiroRacun" Relationship="Self.FK_ZiroRacun_Racun" FromRole="Racun" ToRole="ZiroRacun" />
+        </EntityType>
+        <EntityType Name="Stednja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="Glavnica" Type="Double" Nullable="false" />
+          <Property Name="RokOrocenja" Type="Int32" Nullable="false" />
+          <Property Name="KonacanIznos" Type="Double" Nullable="false" />
+          <Property Name="Vrsta_id" Type="Int32" />
+          <Property Name="Kamate" Type="Double" Nullable="false" />
+          <Property Name="Zaposlenik_id" Type="Int32" />
+          <Property Name="RKS" Type="Double" />
+          <Property Name="Klijent_id" Type="Int32" />
+          <NavigationProperty Name="Klijent" Relationship="Self.FK_Stednja_Klijent" FromRole="Stednja" ToRole="Klijent" />
+          <NavigationProperty Name="VrstaStednje" Relationship="Self.FK_Stednja_VrstaStednje" FromRole="Stednja" ToRole="VrstaStednje" />
+          <NavigationProperty Name="Zaposlenik" Relationship="Self.FK_Stednja_Zaposlenik" FromRole="Stednja" ToRole="Zaposlenik" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tip_zaposlenika">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Zaposlenik" Relationship="Self.FK_Zaposlenik_Tip_zaposlenika" FromRole="Tip_zaposlenika" ToRole="Zaposlenik" />
+        </EntityType>
+        <EntityType Name="Transakcija">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DatumTransakcije" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Saldo" Type="Double" Nullable="false" />
+          <Property Name="SaljeID" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
+          <Property Name="PrimaID" Type="String" MaxLength="21" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Racun" Relationship="Self.FK_Transakcija_Racun" FromRole="Transakcija" ToRole="Racun" />
+          <NavigationProperty Name="Racun1" Relationship="Self.FK_Transakcija_Racun1" FromRole="Transakcija" ToRole="Racun" />
+        </EntityType>
+        <EntityType Name="VrstaStednje">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="EKS" Type="Double" />
+          <NavigationProperty Name="Stednja" Relationship="Self.FK_Stednja_VrstaStednje" FromRole="VrstaStednje" ToRole="Stednja" />
+        </EntityType>
+        <EntityType Name="Zaposlenik">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BrojTelefona" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KorisnickoIme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tip_id" Type="Int32" />
+          <Property Name="Lozinka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Kredit_" Relationship="Self.FK_Kredit__Zaposlenik" FromRole="Zaposlenik" ToRole="Kredit_" />
+          <NavigationProperty Name="Stednja" Relationship="Self.FK_Stednja_Zaposlenik" FromRole="Zaposlenik" ToRole="Stednja" />
+          <NavigationProperty Name="Tip_zaposlenika" Relationship="Self.FK_Zaposlenik_Tip_zaposlenika" FromRole="Zaposlenik" ToRole="Tip_zaposlenika" />
+        </EntityType>
+        <EntityType Name="TekuciRacun">
+          <Key>
+            <PropertyRef Name="IBAN" />
+            <PropertyRef Name="DopustenoPrekoracenje" />
+            <PropertyRef Name="KamatePoPrekoracenju" />
+          </Key>
+          <Property Name="IBAN" Type="String" MaxLength="21" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DopustenoPrekoracenje" Type="Double" Nullable="false" />
+          <Property Name="KamatePoPrekoracenju" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Racun" Relationship="Self.FK_TekuciRacun_Racun1" FromRole="TekuciRacun" ToRole="Racun" />
+        </EntityType>
+        <EntityType Name="ZiroRacun">
+          <Key>
+            <PropertyRef Name="IBAN" />
+            <PropertyRef Name="KamatePoPozitivnomeSaldu" />
+          </Key>
+          <Property Name="IBAN" Type="String" MaxLength="21" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KamatePoPozitivnomeSaldu" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Racun" Relationship="Self.FK_ZiroRacun_Racun" FromRole="ZiroRacun" ToRole="Racun" />
+        </EntityType>
+        <Association Name="FK_Kredit__Klijent">
+          <End Role="Klijent" Type="Self.Klijent" Multiplicity="0..1" />
+          <End Role="Kredit_" Type="Self.Kredit_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kredit_">
+              <PropertyRef Name="Klijent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Racun_Klijent">
+          <End Role="Klijent" Type="Self.Klijent" Multiplicity="0..1" />
+          <End Role="Racun" Type="Self.Racun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Racun">
+              <PropertyRef Name="Klijent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stednja_Klijent">
+          <End Role="Klijent" Type="Self.Klijent" Multiplicity="0..1" />
+          <End Role="Stednja" Type="Self.Stednja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stednja">
+              <PropertyRef Name="Klijent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kredit__Zaposlenik">
+          <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="0..1" />
+          <End Role="Kredit_" Type="Self.Kredit_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenik">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kredit_">
+              <PropertyRef Name="Zaposlenik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Otplatna_tablica_Kredit_">
+          <End Role="Kredit_" Type="Self.Kredit_" Multiplicity="0..1" />
+          <End Role="Otplatna_tablica" Type="Self.Otplatna_tablica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kredit_">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Otplatna_tablica">
+              <PropertyRef Name="Kredit_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TekuciRacun_Racun1">
+          <End Role="Racun" Type="Self.Racun" Multiplicity="1" />
+          <End Role="TekuciRacun" Type="Self.TekuciRacun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racun">
+              <PropertyRef Name="IBAN" />
+            </Principal>
+            <Dependent Role="TekuciRacun">
+              <PropertyRef Name="IBAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transakcija_Racun">
+          <End Role="Racun" Type="Self.Racun" Multiplicity="0..1" />
+          <End Role="Transakcija" Type="Self.Transakcija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racun">
+              <PropertyRef Name="IBAN" />
+            </Principal>
+            <Dependent Role="Transakcija">
+              <PropertyRef Name="SaljeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transakcija_Racun1">
+          <End Role="Racun" Type="Self.Racun" Multiplicity="1" />
+          <End Role="Transakcija" Type="Self.Transakcija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racun">
+              <PropertyRef Name="IBAN" />
+            </Principal>
+            <Dependent Role="Transakcija">
+              <PropertyRef Name="PrimaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZiroRacun_Racun">
+          <End Role="Racun" Type="Self.Racun" Multiplicity="1" />
+          <End Role="ZiroRacun" Type="Self.ZiroRacun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racun">
+              <PropertyRef Name="IBAN" />
+            </Principal>
+            <Dependent Role="ZiroRacun">
+              <PropertyRef Name="IBAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stednja_VrstaStednje">
+          <End Role="VrstaStednje" Type="Self.VrstaStednje" Multiplicity="0..1" />
+          <End Role="Stednja" Type="Self.Stednja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VrstaStednje">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stednja">
+              <PropertyRef Name="Vrsta_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stednja_Zaposlenik">
+          <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="0..1" />
+          <End Role="Stednja" Type="Self.Stednja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenik">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stednja">
+              <PropertyRef Name="Zaposlenik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zaposlenik_Tip_zaposlenika">
+          <End Role="Tip_zaposlenika" Type="Self.Tip_zaposlenika" Multiplicity="0..1" />
+          <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tip_zaposlenika">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Zaposlenik">
+              <PropertyRef Name="Tip_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BankaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Klijent" EntityType="Self.Klijent" />
+          <EntitySet Name="Kredit_" EntityType="Self.Kredit_" />
+          <EntitySet Name="Otplatna_tablica" EntityType="Self.Otplatna_tablica" />
+          <EntitySet Name="Racun" EntityType="Self.Racun" />
+          <EntitySet Name="Stednja" EntityType="Self.Stednja" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tip_zaposlenika" EntityType="Self.Tip_zaposlenika" />
+          <EntitySet Name="Transakcija" EntityType="Self.Transakcija" />
+          <EntitySet Name="VrstaStednje" EntityType="Self.VrstaStednje" />
+          <EntitySet Name="Zaposlenik" EntityType="Self.Zaposlenik" />
+          <EntitySet Name="TekuciRacun" EntityType="Self.TekuciRacun" />
+          <EntitySet Name="ZiroRacun" EntityType="Self.ZiroRacun" />
+          <AssociationSet Name="FK_Kredit__Klijent" Association="Self.FK_Kredit__Klijent">
+            <End Role="Klijent" EntitySet="Klijent" />
+            <End Role="Kredit_" EntitySet="Kredit_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Racun_Klijent" Association="Self.FK_Racun_Klijent">
+            <End Role="Klijent" EntitySet="Klijent" />
+            <End Role="Racun" EntitySet="Racun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stednja_Klijent" Association="Self.FK_Stednja_Klijent">
+            <End Role="Klijent" EntitySet="Klijent" />
+            <End Role="Stednja" EntitySet="Stednja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kredit__Zaposlenik" Association="Self.FK_Kredit__Zaposlenik">
+            <End Role="Zaposlenik" EntitySet="Zaposlenik" />
+            <End Role="Kredit_" EntitySet="Kredit_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Otplatna_tablica_Kredit_" Association="Self.FK_Otplatna_tablica_Kredit_">
+            <End Role="Kredit_" EntitySet="Kredit_" />
+            <End Role="Otplatna_tablica" EntitySet="Otplatna_tablica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TekuciRacun_Racun1" Association="Self.FK_TekuciRacun_Racun1">
+            <End Role="Racun" EntitySet="Racun" />
+            <End Role="TekuciRacun" EntitySet="TekuciRacun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transakcija_Racun" Association="Self.FK_Transakcija_Racun">
+            <End Role="Racun" EntitySet="Racun" />
+            <End Role="Transakcija" EntitySet="Transakcija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transakcija_Racun1" Association="Self.FK_Transakcija_Racun1">
+            <End Role="Racun" EntitySet="Racun" />
+            <End Role="Transakcija" EntitySet="Transakcija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZiroRacun_Racun" Association="Self.FK_ZiroRacun_Racun">
+            <End Role="Racun" EntitySet="Racun" />
+            <End Role="ZiroRacun" EntitySet="ZiroRacun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stednja_VrstaStednje" Association="Self.FK_Stednja_VrstaStednje">
+            <End Role="VrstaStednje" EntitySet="VrstaStednje" />
+            <End Role="Stednja" EntitySet="Stednja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stednja_Zaposlenik" Association="Self.FK_Stednja_Zaposlenik">
+            <End Role="Zaposlenik" EntitySet="Zaposlenik" />
+            <End Role="Stednja" EntitySet="Stednja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zaposlenik_Tip_zaposlenika" Association="Self.FK_Zaposlenik_Tip_zaposlenika">
+            <End Role="Tip_zaposlenika" EntitySet="Tip_zaposlenika" />
+            <End Role="Zaposlenik" EntitySet="Zaposlenik" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(bazaBankaModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(bazaBankaModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bazaBankaModelStoreContainer" CdmEntityContainer="BankaEntities">
+          <EntitySetMapping Name="Klijent">
+            <EntityTypeMapping TypeName="bazaBankaModel.Klijent">
+              <MappingFragment StoreEntitySet="Klijent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="OIB" ColumnName="OIB" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Kontakt" ColumnName="Kontakt" />
+                <ScalarProperty Name="StalnoZaposlenje" ColumnName="StalnoZaposlenje" />
+                <ScalarProperty Name="Primanja" ColumnName="Primanja" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kredit_">
+            <EntityTypeMapping TypeName="bazaBankaModel.Kredit_">
+              <MappingFragment StoreEntitySet="Kredit_">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DatumPocetka" ColumnName="DatumPocetka" />
+                <ScalarProperty Name="Glavnica" ColumnName="Glavnica" />
+                <ScalarProperty Name="RokOtplate" ColumnName="RokOtplate" />
+                <ScalarProperty Name="Zaposlenik_id" ColumnName="Zaposlenik_id" />
+                <ScalarProperty Name="Klijent_id" ColumnName="Klijent_id" />
+                <ScalarProperty Name="KamatnaStopa" ColumnName="KamatnaStopa" />
+                <ScalarProperty Name="NazivKredita" ColumnName="NazivKredita" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Otplatna_tablica">
+            <EntityTypeMapping TypeName="bazaBankaModel.Otplatna_tablica">
+              <MappingFragment StoreEntitySet="Otplatna_tablica">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Kamate" ColumnName="Kamate" />
+                <ScalarProperty Name="Anuitet" ColumnName="Anuitet" />
+                <ScalarProperty Name="OtplatnaKvota" ColumnName="OtplatnaKvota" />
+                <ScalarProperty Name="OstatakDuga" ColumnName="OstatakDuga" />
+                <ScalarProperty Name="OtplaceniDio" ColumnName="OtplaceniDio" />
+                <ScalarProperty Name="Kredit_id" ColumnName="Kredit_id" />
+                <ScalarProperty Name="BrojMjeseca" ColumnName="BrojMjeseca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Racun">
+            <EntityTypeMapping TypeName="bazaBankaModel.Racun">
+              <MappingFragment StoreEntitySet="Racun">
+                <ScalarProperty Name="BrojKartice" ColumnName="BrojKartice" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="Blokiran" ColumnName="Blokiran" />
+                <ScalarProperty Name="Klijent_id" ColumnName="Klijent_id" />
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="KontrolniBroj" ColumnName="KontrolniBroj" />
+                <ScalarProperty Name="PIN" ColumnName="PIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stednja">
+            <EntityTypeMapping TypeName="bazaBankaModel.Stednja">
+              <MappingFragment StoreEntitySet="Stednja">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Glavnica" ColumnName="Glavnica" />
+                <ScalarProperty Name="RokOrocenja" ColumnName="RokOrocenja" />
+                <ScalarProperty Name="KonacanIznos" ColumnName="KonacanIznos" />
+                <ScalarProperty Name="Vrsta_id" ColumnName="Vrsta_id" />
+                <ScalarProperty Name="Kamate" ColumnName="Kamate" />
+                <ScalarProperty Name="Zaposlenik_id" ColumnName="Zaposlenik_id" />
+                <ScalarProperty Name="RKS" ColumnName="RKS" />
+                <ScalarProperty Name="Klijent_id" ColumnName="Klijent_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="bazaBankaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tip_zaposlenika">
+            <EntityTypeMapping TypeName="bazaBankaModel.Tip_zaposlenika">
+              <MappingFragment StoreEntitySet="Tip_zaposlenika">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transakcija">
+            <EntityTypeMapping TypeName="bazaBankaModel.Transakcija">
+              <MappingFragment StoreEntitySet="Transakcija">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DatumTransakcije" ColumnName="DatumTransakcije" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="SaljeID" ColumnName="SaljeID" />
+                <ScalarProperty Name="PrimaID" ColumnName="PrimaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VrstaStednje">
+            <EntityTypeMapping TypeName="bazaBankaModel.VrstaStednje">
+              <MappingFragment StoreEntitySet="VrstaStednje">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="EKS" ColumnName="EKS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zaposlenik">
+            <EntityTypeMapping TypeName="bazaBankaModel.Zaposlenik">
+              <MappingFragment StoreEntitySet="Zaposlenik">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="BrojTelefona" ColumnName="BrojTelefona" />
+                <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+                <ScalarProperty Name="Tip_id" ColumnName="Tip_id" />
+                <ScalarProperty Name="Lozinka" ColumnName="Lozinka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TekuciRacun">
+            <EntityTypeMapping TypeName="bazaBankaModel.TekuciRacun">
+              <MappingFragment StoreEntitySet="TekuciRacun">
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="DopustenoPrekoracenje" ColumnName="DopustenoPrekoracenje" />
+                <ScalarProperty Name="KamatePoPrekoracenju" ColumnName="KamatePoPrekoracenju" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZiroRacun">
+            <EntityTypeMapping TypeName="bazaBankaModel.ZiroRacun">
+              <MappingFragment StoreEntitySet="ZiroRacun">
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="KamatePoPozitivnomeSaldu" ColumnName="KamatePoPozitivnomeSaldu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="bazaBankaModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="bazaBankaModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="bazaBankaModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="bazaBankaModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bazaBankaModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="bazaBankaModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bazaBankaModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="bazaBankaModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="bazaBankaModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
