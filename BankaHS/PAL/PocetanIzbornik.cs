@@ -1,4 +1,5 @@
 ﻿using BankaHS.BLL;
+using BankaHS.PAL;
 using BankaHS.PAL.AdminForme;
 using BankaHS.PAL.PALInterface;
 using System;
@@ -73,6 +74,14 @@ namespace BankaHS.PresentationLayer
         public void PomocF1()
         {
             throw new NotImplementedException();
+        }
+
+        private void btnTecaj_Click(object sender, EventArgs e)
+        {
+            frmTecajnaLista forma = new frmTecajnaLista();
+            this.Hide();
+            forma.ShowDialog();
+            this.Show();
         }
     }
 }

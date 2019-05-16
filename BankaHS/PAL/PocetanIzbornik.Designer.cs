@@ -37,8 +37,8 @@
             this.tbnTransakcije = new System.Windows.Forms.Button();
             this.btnPregledKlijenta = new System.Windows.Forms.Button();
             this.gbIzbornik = new System.Windows.Forms.GroupBox();
-            this.btnKrediti = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnKrediti = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.gbIzbornik.SuspendLayout();
             this.SuspendLayout();
@@ -97,6 +97,7 @@
             this.btnTecaj.TabIndex = 3;
             this.btnTecaj.Text = "Tečajna lista";
             this.btnTecaj.UseVisualStyleBackColor = true;
+            this.btnTecaj.Click += new System.EventHandler(this.btnTecaj_Click);
             // 
             // tbnTransakcije
             // 
@@ -131,15 +132,6 @@
             this.gbIzbornik.TabIndex = 6;
             this.gbIzbornik.TabStop = false;
             // 
-            // btnKrediti
-            // 
-            this.btnKrediti.Location = new System.Drawing.Point(15, 162);
-            this.btnKrediti.Name = "btnKrediti";
-            this.btnKrediti.Size = new System.Drawing.Size(125, 60);
-            this.btnKrediti.TabIndex = 6;
-            this.btnKrediti.Text = "Zahtjev za kredit";
-            this.btnKrediti.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(599, 52);
@@ -148,6 +140,15 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "Otvaranje računa";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnKrediti
+            // 
+            this.btnKrediti.Location = new System.Drawing.Point(15, 162);
+            this.btnKrediti.Name = "btnKrediti";
+            this.btnKrediti.Size = new System.Drawing.Size(125, 60);
+            this.btnKrediti.TabIndex = 6;
+            this.btnKrediti.Text = "Zahtjev za kredit";
+            this.btnKrediti.UseVisualStyleBackColor = true;
             // 
             // PocetanIzbornik
             // 

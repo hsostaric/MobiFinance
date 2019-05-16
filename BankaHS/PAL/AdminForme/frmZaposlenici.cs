@@ -47,7 +47,7 @@ namespace BankaHS.PAL.AdminForme
 
         private void frmZaposlenici_Load(object sender, EventArgs e)
         {
-            int a;
+
             podaciComboboxa();
             OsvjeziPrikaz();
         }
