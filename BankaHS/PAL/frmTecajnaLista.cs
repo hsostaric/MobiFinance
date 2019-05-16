@@ -119,6 +119,26 @@ namespace BankaHS.PAL
 
         }
 
+        private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dgvTecajnaLista_SelectionChanged(object sender, EventArgs e)
+        {
+            label5.Text = dgvTecajnaLista.CurrentRow.Cells[4].Value.ToString();
+            txtStranaValuta.Clear();
+            uiIznosUKunama.Clear();
+        }
+
+        private void uibtnPretvori_Click(object sender, EventArgs e)
+        {
+            if (Tecaj.ProvjeraUnosa(txtStranaValuta.Text).Equals(false)) MessageBox.Show("Provjerite jeste li uniejli broj", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                uiIznosUKunama.Text = ((dgvTecajnaLista.SelectedRows[0].DataBoundItem) as Tecaj).KonvertirajIznosUKune(txtStranaValuta.Text).ToString();
+            }
+        }
     }
 }
 

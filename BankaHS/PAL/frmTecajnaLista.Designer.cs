@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTecajnaLista = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.uibtnPretvori = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtStranaValuta = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.uiIznosUKunama = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -55,10 +55,11 @@
             // 
             // dgvTecajnaLista
             // 
+            this.dgvTecajnaLista.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.dgvTecajnaLista.AllowUserToAddRows = false;
             this.dgvTecajnaLista.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dgvTecajnaLista.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dgvTecajnaLista.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTecajnaLista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -69,8 +70,10 @@
             this.dgvTecajnaLista.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTecajnaLista.Name = "dgvTecajnaLista";
             this.dgvTecajnaLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTecajnaLista.ShowEditingIcon = false;
             this.dgvTecajnaLista.Size = new System.Drawing.Size(736, 328);
             this.dgvTecajnaLista.TabIndex = 0;
+            this.dgvTecajnaLista.SelectionChanged += new System.EventHandler(this.dgvTecajnaLista_SelectionChanged);
             // 
             // label1
             // 
@@ -174,6 +177,7 @@
             this.uibtnPretvori.TabIndex = 20;
             this.uibtnPretvori.Text = "Konvertiraj";
             this.uibtnPretvori.UseVisualStyleBackColor = true;
+            this.uibtnPretvori.Click += new System.EventHandler(this.uibtnPretvori_Click);
             // 
             // label6
             // 
@@ -183,12 +187,12 @@
             this.label6.Size = new System.Drawing.Size(0, 16);
             this.label6.TabIndex = 19;
             // 
-            // textBox2
+            // txtStranaValuta
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 450);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(263, 22);
-            this.textBox2.TabIndex = 18;
+            this.txtStranaValuta.Location = new System.Drawing.Point(12, 450);
+            this.txtStranaValuta.Name = "txtStranaValuta";
+            this.txtStranaValuta.Size = new System.Drawing.Size(263, 22);
+            this.txtStranaValuta.TabIndex = 18;
             // 
             // label7
             // 
@@ -223,6 +227,7 @@
             this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
             this.nazadToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.nazadToolStripMenuItem.Text = "Nazad";
+            this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
             // label4
             // 
@@ -249,7 +254,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.uibtnPretvori);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtStranaValuta);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.uiIznosUKunama);
             this.Controls.Add(this.btnActualyList);
@@ -295,7 +300,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button uibtnPretvori;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtStranaValuta;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox uiIznosUKunama;
         private System.Windows.Forms.MenuStrip menuStrip1;
