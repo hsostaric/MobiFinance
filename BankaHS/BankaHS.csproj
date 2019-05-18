@@ -86,6 +86,7 @@
     <Compile Include="BLL\Racun.cs">
       <DependentUpon>BankaEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\Repositories\VrstaStednjeRepository.cs" />
     <Compile Include="DAL\Repositories\TipZaposlenikaRepository.cs" />
     <Compile Include="DAL\Repositories\ZaposlenikRepository.cs" />
     <Compile Include="BLL\sp_helpdiagramdefinition_Result.cs">
@@ -124,11 +125,23 @@
     <Compile Include="PAL\AdminForme\AdminIzbornik.Designer.cs">
       <DependentUpon>AdminIzbornik.cs</DependentUpon>
     </Compile>
+    <Compile Include="PAL\AdminForme\frmNovaVrstaStednje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAL\AdminForme\frmNovaVrstaStednje.Designer.cs">
+      <DependentUpon>frmNovaVrstaStednje.cs</DependentUpon>
+    </Compile>
     <Compile Include="PAL\AdminForme\frmNoviZaposlenik.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PAL\AdminForme\frmNoviZaposlenik.Designer.cs">
       <DependentUpon>frmNoviZaposlenik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAL\AdminForme\frmTipStednje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAL\AdminForme\frmTipStednje.Designer.cs">
+      <DependentUpon>frmTipStednje.cs</DependentUpon>
     </Compile>
     <Compile Include="PAL\AdminForme\frmZaposlenici.cs">
       <SubType>Form</SubType>
@@ -160,8 +173,14 @@
     <EmbeddedResource Include="PAL\AdminForme\AdminIzbornik.resx">
       <DependentUpon>AdminIzbornik.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PAL\AdminForme\frmNovaVrstaStednje.resx">
+      <DependentUpon>frmNovaVrstaStednje.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PAL\AdminForme\frmNoviZaposlenik.resx">
       <DependentUpon>frmNoviZaposlenik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAL\AdminForme\frmTipStednje.resx">
+      <DependentUpon>frmTipStednje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PAL\AdminForme\frmZaposlenici.resx">
       <DependentUpon>frmZaposlenici.cs</DependentUpon>
@@ -193,6 +212,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BankaHS.BLL.Tip_zaposlenika.datasource" />
+    <None Include="Properties\DataSources\BankaHS.BLL.VrstaStednje.datasource" />
     <None Include="Properties\DataSources\BankaHS.BLL.Zaposlenik.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

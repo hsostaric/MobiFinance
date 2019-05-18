@@ -9,9 +9,10 @@
 
 namespace BankaHS.BLL
 {
+    using BankaHS.DAL.Repositories;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class VrstaStednje
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,12 +20,17 @@ namespace BankaHS.BLL
         {
             this.Stednja = new HashSet<Stednja>();
         }
-    
+
         public int Id { get; set; }
         public string Naziv { get; set; }
         public Nullable<double> EKS { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stednja> Stednja { get; set; }
+
+        public static List<VrstaStednje> DohvatiTipoveStednja()
+        {
+            return VrstaStednjeRepository.Instance.DohvatiSveTipoveStednje();
+        }
     }
 }

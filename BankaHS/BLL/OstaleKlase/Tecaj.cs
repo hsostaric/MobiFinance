@@ -13,17 +13,17 @@ namespace BankaHS.BLL.OstaleKlase
 {
     public class Tecaj
     {
-        [JsonProperty(PropertyName = "Broj tečajnice")]
+
         public int BrojTecajnice { get; set; }
-        [JsonProperty(PropertyName = "Datum primjene")]
+
         public string DatumPrimjene { get; set; }
-        [JsonProperty(PropertyName = "Država")]
+
         public string Drzava { get; set; }
-        [JsonProperty(PropertyName = "Šifra valute")]
+
         public string SifraValute { get; set; }
-        [JsonProperty(PropertyName = "Valuta")]
+
         public string Valuta { get; set; }
-        [JsonProperty(PropertyName = "Jedinica")]
+
         public int Jedinica { get; set; }
         [JsonProperty(PropertyName = "Kupovni za devize")]
         public string KupovniZaDevize { get; set; }
@@ -54,8 +54,8 @@ namespace BankaHS.BLL.OstaleKlase
 
         public double KonvertirajIznosUKune(string iznos)
         {
-            double mnozenik = Double.Parse(iznos, CultureInfo.CurrentCulture);
-            double mnozitelj = Double.Parse(this.KupovniZaDevize, CultureInfo.CurrentCulture);
+            double mnozenik = double.Parse(iznos, CultureInfo.CurrentCulture);
+            double mnozitelj = double.Parse(this.KupovniZaDevize, CultureInfo.CurrentCulture);
             if (this.SifraValute.Equals("348") || this.SifraValute.Equals("392")) mnozitelj /= 100;
             return Math.Round(mnozenik * mnozitelj, 2);
         }
