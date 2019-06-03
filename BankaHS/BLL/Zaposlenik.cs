@@ -31,8 +31,9 @@ namespace BankaHS.BLL
             KorisnickoIme = korisnickoIme;
             Lozinka = lozinka;
             Tip_zaposlenika = tip;
+            this.Kredit_ = new HashSet<Kredit_>();
+            this.Stednja = new HashSet<Stednja>();
         }
-
         public int Id { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
@@ -42,7 +43,6 @@ namespace BankaHS.BLL
         public string KorisnickoIme { get; set; }
         public Nullable<int> Tip_id { get; set; }
         public string Lozinka { get; set; }
-
         public static Zaposlenik PrijavljeniZaposlenik { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -50,7 +50,6 @@ namespace BankaHS.BLL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stednja> Stednja { get; set; }
         public virtual Tip_zaposlenika Tip_zaposlenika { get; set; }
-
         public bool provjeriPrijavu(string username, string password)
         {
 

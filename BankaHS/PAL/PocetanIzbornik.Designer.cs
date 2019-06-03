@@ -131,6 +131,7 @@
             this.gbIzbornik.Size = new System.Drawing.Size(759, 304);
             this.gbIzbornik.TabIndex = 6;
             this.gbIzbornik.TabStop = false;
+            this.gbIzbornik.Enter += new System.EventHandler(this.gbIzbornik_Enter);
             // 
             // button1
             // 

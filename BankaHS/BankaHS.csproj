@@ -73,6 +73,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BankaEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="BLL\DevizniRacun.cs">
+      <DependentUpon>BankaEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="BLL\Klijent.cs">
       <DependentUpon>BankaEntities.tt</DependentUpon>
     </Compile>
@@ -86,9 +89,6 @@
     <Compile Include="BLL\Racun.cs">
       <DependentUpon>BankaEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\Repositories\VrstaStednjeRepository.cs" />
-    <Compile Include="DAL\Repositories\TipZaposlenikaRepository.cs" />
-    <Compile Include="DAL\Repositories\ZaposlenikRepository.cs" />
     <Compile Include="BLL\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>BankaEntities.tt</DependentUpon>
     </Compile>
@@ -110,38 +110,25 @@
     <Compile Include="BLL\Transakcija.cs">
       <DependentUpon>BankaEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="BLL\VrstaStednje.cs">
-      <DependentUpon>BankaEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="BLL\Zaposlenik.cs">
       <DependentUpon>BankaEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="BLL\ZiroRacun.cs">
       <DependentUpon>BankaEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\Repositories\TipZaposlenikaRepository.cs" />
+    <Compile Include="DAL\Repositories\ZaposlenikRepository.cs" />
     <Compile Include="PAL\AdminForme\AdminIzbornik.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PAL\AdminForme\AdminIzbornik.Designer.cs">
       <DependentUpon>AdminIzbornik.cs</DependentUpon>
     </Compile>
-    <Compile Include="PAL\AdminForme\frmNovaVrstaStednje.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PAL\AdminForme\frmNovaVrstaStednje.Designer.cs">
-      <DependentUpon>frmNovaVrstaStednje.cs</DependentUpon>
-    </Compile>
     <Compile Include="PAL\AdminForme\frmNoviZaposlenik.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PAL\AdminForme\frmNoviZaposlenik.Designer.cs">
       <DependentUpon>frmNoviZaposlenik.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PAL\AdminForme\frmTipStednje.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PAL\AdminForme\frmTipStednje.Designer.cs">
-      <DependentUpon>frmTipStednje.cs</DependentUpon>
     </Compile>
     <Compile Include="PAL\AdminForme\frmZaposlenici.cs">
       <SubType>Form</SubType>
@@ -173,14 +160,8 @@
     <EmbeddedResource Include="PAL\AdminForme\AdminIzbornik.resx">
       <DependentUpon>AdminIzbornik.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PAL\AdminForme\frmNovaVrstaStednje.resx">
-      <DependentUpon>frmNovaVrstaStednje.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PAL\AdminForme\frmNoviZaposlenik.resx">
       <DependentUpon>frmNoviZaposlenik.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PAL\AdminForme\frmTipStednje.resx">
-      <DependentUpon>frmTipStednje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PAL\AdminForme\frmZaposlenici.resx">
       <DependentUpon>frmZaposlenici.cs</DependentUpon>
@@ -227,12 +208,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="BLL\BankaEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BankaEntities.Context.cs</LastGenOutput>
       <DependentUpon>BankaEntities.edmx</DependentUpon>
+      <LastGenOutput>BankaEntities.Context.cs</LastGenOutput>
     </Content>
     <Content Include="BLL\BankaEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

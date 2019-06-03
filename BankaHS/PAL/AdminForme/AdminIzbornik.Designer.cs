@@ -33,7 +33,6 @@
             this.odjavaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbUsluge = new System.Windows.Forms.GroupBox();
             this.uibtnAdminZaposlenici = new System.Windows.Forms.Button();
-            this.btnTipŠtednje = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.gbUsluge.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +65,6 @@
             // 
             // gbUsluge
             // 
-            this.gbUsluge.Controls.Add(this.btnTipŠtednje);
             this.gbUsluge.Controls.Add(this.uibtnAdminZaposlenici);
             this.gbUsluge.Location = new System.Drawing.Point(12, 42);
             this.gbUsluge.Name = "gbUsluge";
@@ -83,16 +81,6 @@
             this.uibtnAdminZaposlenici.Text = "Zaposlenici";
             this.uibtnAdminZaposlenici.UseVisualStyleBackColor = true;
             this.uibtnAdminZaposlenici.Click += new System.EventHandler(this.uibtnAdminZaposlenici_Click);
-            // 
-            // btnTipŠtednje
-            // 
-            this.btnTipŠtednje.Location = new System.Drawing.Point(164, 21);
-            this.btnTipŠtednje.Name = "btnTipŠtednje";
-            this.btnTipŠtednje.Size = new System.Drawing.Size(131, 65);
-            this.btnTipŠtednje.TabIndex = 1;
-            this.btnTipŠtednje.Text = "Tip štednje";
-            this.btnTipŠtednje.UseVisualStyleBackColor = true;
-            this.btnTipŠtednje.Click += new System.EventHandler(this.btnTipŠtednje_Click);
             // 
             // AdminIzbornik
             // 
@@ -123,6 +111,5 @@
         private System.Windows.Forms.ToolStripMenuItem odjavaToolStripMenuItem;
         private System.Windows.Forms.GroupBox gbUsluge;
         private System.Windows.Forms.Button uibtnAdminZaposlenici;
-        private System.Windows.Forms.Button btnTipŠtednje;
     }
 }

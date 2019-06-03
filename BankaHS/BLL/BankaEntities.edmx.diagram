@@ -4,19 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1fd22cbe77cf454f977cb276d2d97cc4" Name="Diagram1">
-        <EntityTypeShape EntityType="bazaBankaModel.Klijent" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bazaBankaModel.Kredit_" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bazaBankaModel.Otplatna_tablica" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="bazaBankaModel.Racun" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="bazaBankaModel.Stednja" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+      <Diagram DiagramId="6d446eb406a049399c53bb322193fcef" Name="Diagram1">
+        <EntityTypeShape EntityType="bazaBankaModel.DevizniRacun" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.Klijent" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.Kredit_" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.Otplatna_tablica" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.Racun" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.Stednja" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="bazaBankaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bazaBankaModel.Tip_zaposlenika" Width="1.5" PointX="1.5" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bazaBankaModel.Transakcija" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="bazaBankaModel.VrstaStednje" Width="1.5" PointX="3.75" PointY="18.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bazaBankaModel.Zaposlenik" Width="1.5" PointX="3.75" PointY="21" IsExpanded="true" />
-        <EntityTypeShape EntityType="bazaBankaModel.TekuciRacun" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="bazaBankaModel.ZiroRacun" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.TekuciRacun" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.Tip_zaposlenika" Width="1.5" PointX="1.5" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.Transakcija" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.Zaposlenik" Width="1.5" PointX="3.75" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bazaBankaModel.ZiroRacun" Width="1.5" PointX="5.25" PointY="18.125" IsExpanded="true" />
+        <AssociationConnector Association="bazaBankaModel.FK_DevizniRacun_Racun" ManuallyRouted="false" />
         <AssociationConnector Association="bazaBankaModel.FK_Kredit__Klijent" ManuallyRouted="false" />
         <AssociationConnector Association="bazaBankaModel.FK_Racun_Klijent" ManuallyRouted="false" />
         <AssociationConnector Association="bazaBankaModel.FK_Stednja_Klijent" ManuallyRouted="false" />
@@ -26,7 +27,6 @@
         <AssociationConnector Association="bazaBankaModel.FK_Transakcija_Racun" ManuallyRouted="false" />
         <AssociationConnector Association="bazaBankaModel.FK_Transakcija_Racun1" ManuallyRouted="false" />
         <AssociationConnector Association="bazaBankaModel.FK_ZiroRacun_Racun" ManuallyRouted="false" />
-        <AssociationConnector Association="bazaBankaModel.FK_Stednja_VrstaStednje" ManuallyRouted="false" />
         <AssociationConnector Association="bazaBankaModel.FK_Stednja_Zaposlenik" ManuallyRouted="false" />
         <AssociationConnector Association="bazaBankaModel.FK_Zaposlenik_Tip_zaposlenika" ManuallyRouted="false" />
       </Diagram>

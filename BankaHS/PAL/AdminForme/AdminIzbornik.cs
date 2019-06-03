@@ -70,12 +70,6 @@ namespace BankaHS.PAL.AdminForme
             throw new NotImplementedException();
         }
 
-        private void btnTipŠtednje_Click(object sender, EventArgs e)
-        {
-            frmTipStednje forma = new frmTipStednje();
-            this.Hide();
-            forma.ShowDialog();
-            this.Show();
-        }
+
     }
 }

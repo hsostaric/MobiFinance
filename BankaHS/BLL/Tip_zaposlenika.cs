@@ -27,7 +27,6 @@ namespace BankaHS.BLL
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zaposlenik> Zaposlenik { get; set; }
-
         public static bool ProvjeriPrijavljenog(Zaposlenik zaposlenik)
         {
             return TipZaposlenikaRepository.Instance.ProvjeriTipZaposlenog(zaposlenik)
@@ -46,9 +45,5 @@ namespace BankaHS.BLL
         {
             return TipZaposlenikaRepository.Instance.DohvatiSveVrsteZaposlenih();
         }
-
-
-
-
     }
 }

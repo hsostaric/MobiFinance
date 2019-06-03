@@ -17,10 +17,8 @@ namespace BankaHS.BLL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Racun()
         {
-            this.TekuciRacun = new HashSet<TekuciRacun>();
             this.Transakcija = new HashSet<Transakcija>();
             this.Transakcija1 = new HashSet<Transakcija>();
-            this.ZiroRacun = new HashSet<ZiroRacun>();
         }
     
         public string BrojKartice { get; set; }
@@ -31,14 +29,13 @@ namespace BankaHS.BLL
         public string KontrolniBroj { get; set; }
         public int PIN { get; set; }
     
+        public virtual DevizniRacun DevizniRacun { get; set; }
         public virtual Klijent Klijent { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TekuciRacun> TekuciRacun { get; set; }
+        public virtual TekuciRacun TekuciRacun { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transakcija> Transakcija { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transakcija> Transakcija1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ZiroRacun> ZiroRacun { get; set; }
+        public virtual ZiroRacun ZiroRacun { get; set; }
     }
 }

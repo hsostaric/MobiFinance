@@ -83,5 +83,10 @@ namespace BankaHS.PresentationLayer
             forma.ShowDialog();
             this.Show();
         }
+
+        private void gbIzbornik_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

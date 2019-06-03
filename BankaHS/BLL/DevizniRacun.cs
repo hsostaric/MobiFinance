@@ -12,10 +12,10 @@ namespace BankaHS.BLL
     using System;
     using System.Collections.Generic;
     
-    public partial class ZiroRacun
+    public partial class DevizniRacun
     {
         public string IBAN { get; set; }
-        public double KamatePoPozitivnomeSaldu { get; set; }
+        public string Valuta { get; set; }
     
         public virtual Racun Racun { get; set; }
     }

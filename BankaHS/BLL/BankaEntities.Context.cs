@@ -27,17 +27,17 @@ namespace BankaHS.BLL
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<DevizniRacun> DevizniRacun { get; set; }
         public virtual DbSet<Klijent> Klijent { get; set; }
         public virtual DbSet<Kredit_> Kredit_ { get; set; }
         public virtual DbSet<Otplatna_tablica> Otplatna_tablica { get; set; }
         public virtual DbSet<Racun> Racun { get; set; }
         public virtual DbSet<Stednja> Stednja { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<TekuciRacun> TekuciRacun { get; set; }
         public virtual DbSet<Tip_zaposlenika> Tip_zaposlenika { get; set; }
         public virtual DbSet<Transakcija> Transakcija { get; set; }
-        public virtual DbSet<VrstaStednje> VrstaStednje { get; set; }
         public virtual DbSet<Zaposlenik> Zaposlenik { get; set; }
-        public virtual DbSet<TekuciRacun> TekuciRacun { get; set; }
         public virtual DbSet<ZiroRacun> ZiroRacun { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)

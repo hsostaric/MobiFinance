@@ -17,16 +17,17 @@ namespace BankaHS.BLL
         public int Id { get; set; }
         public int Status { get; set; }
         public double Glavnica { get; set; }
-        public int RokOrocenja { get; set; }
         public double KonacanIznos { get; set; }
         public Nullable<int> Vrsta_id { get; set; }
         public double Kamate { get; set; }
         public Nullable<int> Zaposlenik_id { get; set; }
         public Nullable<double> RKS { get; set; }
         public Nullable<int> Klijent_id { get; set; }
+        public double EKS { get; set; }
+        public int RokOrocenja { get; set; }
+        public string Naziv { get; set; }
     
         public virtual Klijent Klijent { get; set; }
-        public virtual VrstaStednje VrstaStednje { get; set; }
         public virtual Zaposlenik Zaposlenik { get; set; }
     }
 }

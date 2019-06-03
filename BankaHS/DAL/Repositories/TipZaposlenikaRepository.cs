@@ -33,7 +33,7 @@ namespace BankaHS.DAL.Repositories
         }
         public List<Tip_zaposlenika> DohvatiSveVrsteZaposlenih()
         {
-            using (BankaEntities db = new BankaEntities())
+            using (var db = new BankaEntities())
             {
                 return db.Tip_zaposlenika.ToList();
             }
