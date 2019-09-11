@@ -116,6 +116,7 @@
     <Compile Include="BLL\ZiroRacun.cs">
       <DependentUpon>BankaEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\Repositories\KlijentRepository.cs" />
     <Compile Include="DAL\Repositories\TipZaposlenikaRepository.cs" />
     <Compile Include="DAL\Repositories\ZaposlenikRepository.cs" />
     <Compile Include="PAL\AdminForme\AdminIzbornik.cs">
@@ -136,11 +137,23 @@
     <Compile Include="PAL\AdminForme\frmZaposlenici.Designer.cs">
       <DependentUpon>frmZaposlenici.cs</DependentUpon>
     </Compile>
+    <Compile Include="PAL\FormsForClient\frmNoviKlijent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAL\FormsForClient\frmNoviKlijent.Designer.cs">
+      <DependentUpon>frmNoviKlijent.cs</DependentUpon>
+    </Compile>
     <Compile Include="PAL\frmTecajnaLista.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PAL\frmTecajnaLista.Designer.cs">
       <DependentUpon>frmTecajnaLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAL\FormsForClient\frmKlijenti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAL\FormsForClient\frmKlijenti.Designer.cs">
+      <DependentUpon>frmKlijenti.cs</DependentUpon>
     </Compile>
     <Compile Include="PAL\Login.cs">
       <SubType>Form</SubType>
@@ -166,8 +179,14 @@
     <EmbeddedResource Include="PAL\AdminForme\frmZaposlenici.resx">
       <DependentUpon>frmZaposlenici.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PAL\FormsForClient\frmNoviKlijent.resx">
+      <DependentUpon>frmNoviKlijent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PAL\frmTecajnaLista.resx">
       <DependentUpon>frmTecajnaLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAL\FormsForClient\frmKlijenti.resx">
+      <DependentUpon>frmKlijenti.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PAL\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -192,8 +211,8 @@
       <DependentUpon>BankaEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\BankaHS.BLL.Klijent.datasource" />
     <None Include="Properties\DataSources\BankaHS.BLL.Tip_zaposlenika.datasource" />
-    <None Include="Properties\DataSources\BankaHS.BLL.VrstaStednje.datasource" />
     <None Include="Properties\DataSources\BankaHS.BLL.Zaposlenik.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

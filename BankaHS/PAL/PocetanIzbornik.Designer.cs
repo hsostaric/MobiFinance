@@ -107,6 +107,7 @@
             this.tbnTransakcije.TabIndex = 4;
             this.tbnTransakcije.Text = "Transakcije";
             this.tbnTransakcije.UseVisualStyleBackColor = true;
+            this.tbnTransakcije.Click += new System.EventHandler(this.tbnTransakcije_Click);
             // 
             // btnPregledKlijenta
             // 
@@ -114,8 +115,9 @@
             this.btnPregledKlijenta.Name = "btnPregledKlijenta";
             this.btnPregledKlijenta.Size = new System.Drawing.Size(155, 57);
             this.btnPregledKlijenta.TabIndex = 5;
-            this.btnPregledKlijenta.Text = "Podaci o kijentu";
+            this.btnPregledKlijenta.Text = "Popis klijenata";
             this.btnPregledKlijenta.UseVisualStyleBackColor = true;
+            this.btnPregledKlijenta.Click += new System.EventHandler(this.btnPregledKlijenta_Click);
             // 
             // gbIzbornik
             // 

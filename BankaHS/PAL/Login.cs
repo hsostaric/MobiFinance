@@ -25,7 +25,6 @@ namespace BankaHS
                 OcistiBoxove();
                 PocetanIzbornik forma = new PocetanIzbornik();
                 this.Hide();
-              
                 forma.ShowDialog();
                 this.Show();
                 

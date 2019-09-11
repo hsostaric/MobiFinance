@@ -88,5 +88,18 @@ namespace BankaHS.PresentationLayer
         {
 
         }
+
+        private void btnPregledKlijenta_Click(object sender, EventArgs e)
+        {
+            frmKlijenti klijenti = new frmKlijenti();
+            this.Hide();
+            klijenti.ShowDialog();
+            this.Show();
+        }
+
+        private void tbnTransakcije_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
