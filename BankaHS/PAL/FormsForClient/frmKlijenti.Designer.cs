@@ -31,15 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgvKlijenti = new System.Windows.Forms.DataGridView();
-            this.Kontakt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDodajKlijenta = new System.Windows.Forms.Button();
             this.btnAzurirajKlijenta = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.imeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prezimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvKlijenti = new System.Windows.Forms.DataGridView();
+            this.uiFullClientData = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oIBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kontaktDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.klijentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijenti)).BeginInit();
@@ -64,36 +64,6 @@
             this.nazadToolStripMenuItem.Text = "Nazad";
             this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click_1);
             // 
-            // dgvKlijenti
-            // 
-            this.dgvKlijenti.AllowUserToAddRows = false;
-            this.dgvKlijenti.AllowUserToDeleteRows = false;
-            this.dgvKlijenti.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvKlijenti.AutoGenerateColumns = false;
-            this.dgvKlijenti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKlijenti.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.imeDataGridViewTextBoxColumn,
-            this.prezimeDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.Kontakt,
-            this.adresaDataGridViewTextBoxColumn});
-            this.dgvKlijenti.DataSource = this.klijentBindingSource;
-            this.dgvKlijenti.Location = new System.Drawing.Point(63, 53);
-            this.dgvKlijenti.Name = "dgvKlijenti";
-            this.dgvKlijenti.ReadOnly = true;
-            this.dgvKlijenti.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKlijenti.Size = new System.Drawing.Size(547, 196);
-            this.dgvKlijenti.TabIndex = 1;
-            // 
-            // Kontakt
-            // 
-            this.Kontakt.DataPropertyName = "Kontakt";
-            this.Kontakt.HeaderText = "Kontakt";
-            this.Kontakt.Name = "Kontakt";
-            this.Kontakt.ReadOnly = true;
-            // 
             // btnDodajKlijenta
             // 
             this.btnDodajKlijenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -115,43 +85,74 @@
             this.btnAzurirajKlijenta.Text = "Ažuriraj klijenta";
             this.btnAzurirajKlijenta.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // dgvKlijenti
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Location = new System.Drawing.Point(383, 322);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(148, 64);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Pune informacije o klijentu";
-            this.button3.UseVisualStyleBackColor = true;
+            this.dgvKlijenti.AllowUserToAddRows = false;
+            this.dgvKlijenti.AllowUserToDeleteRows = false;
+            this.dgvKlijenti.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvKlijenti.AutoGenerateColumns = false;
+            this.dgvKlijenti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKlijenti.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.oIBDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn3,
+            this.kontaktDataGridViewTextBoxColumn});
+            this.dgvKlijenti.DataSource = this.klijentBindingSource;
+            this.dgvKlijenti.Location = new System.Drawing.Point(63, 53);
+            this.dgvKlijenti.Name = "dgvKlijenti";
+            this.dgvKlijenti.ReadOnly = true;
+            this.dgvKlijenti.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvKlijenti.Size = new System.Drawing.Size(569, 198);
+            this.dgvKlijenti.TabIndex = 1;
             // 
-            // imeDataGridViewTextBoxColumn
+            // uiFullClientData
             // 
-            this.imeDataGridViewTextBoxColumn.DataPropertyName = "Ime";
-            this.imeDataGridViewTextBoxColumn.HeaderText = "Ime";
-            this.imeDataGridViewTextBoxColumn.Name = "imeDataGridViewTextBoxColumn";
-            this.imeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.uiFullClientData.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.uiFullClientData.Location = new System.Drawing.Point(383, 322);
+            this.uiFullClientData.Name = "uiFullClientData";
+            this.uiFullClientData.Size = new System.Drawing.Size(148, 64);
+            this.uiFullClientData.TabIndex = 4;
+            this.uiFullClientData.Text = "Pune informacije o klijentu";
+            this.uiFullClientData.UseVisualStyleBackColor = true;
+            this.uiFullClientData.Click += new System.EventHandler(this.uiFullClientData_Click);
             // 
-            // prezimeDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            this.prezimeDataGridViewTextBoxColumn.DataPropertyName = "Prezime";
-            this.prezimeDataGridViewTextBoxColumn.HeaderText = "Prezime";
-            this.prezimeDataGridViewTextBoxColumn.Name = "prezimeDataGridViewTextBoxColumn";
-            this.prezimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Ime";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Ime";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // emailDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Prezime";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Prezime";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // adresaDataGridViewTextBoxColumn
+            // oIBDataGridViewTextBoxColumn
             // 
-            this.adresaDataGridViewTextBoxColumn.DataPropertyName = "Adresa";
-            this.adresaDataGridViewTextBoxColumn.HeaderText = "Adresa";
-            this.adresaDataGridViewTextBoxColumn.Name = "adresaDataGridViewTextBoxColumn";
-            this.adresaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.oIBDataGridViewTextBoxColumn.DataPropertyName = "OIB";
+            this.oIBDataGridViewTextBoxColumn.HeaderText = "OIB";
+            this.oIBDataGridViewTextBoxColumn.Name = "oIBDataGridViewTextBoxColumn";
+            this.oIBDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Email";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Email";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // kontaktDataGridViewTextBoxColumn
+            // 
+            this.kontaktDataGridViewTextBoxColumn.DataPropertyName = "Kontakt";
+            this.kontaktDataGridViewTextBoxColumn.HeaderText = "Kontakt";
+            this.kontaktDataGridViewTextBoxColumn.Name = "kontaktDataGridViewTextBoxColumn";
+            this.kontaktDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // klijentBindingSource
             // 
@@ -162,7 +163,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.uiFullClientData);
             this.Controls.Add(this.btnAzurirajKlijenta);
             this.Controls.Add(this.btnDodajKlijenta);
             this.Controls.Add(this.dgvKlijenti);
@@ -187,15 +188,19 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem nazadToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dgvKlijenti;
         private System.Windows.Forms.DataGridViewTextBoxColumn imeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn prezimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Kontakt;
         private System.Windows.Forms.DataGridViewTextBoxColumn adresaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource klijentBindingSource;
         private System.Windows.Forms.Button btnDodajKlijenta;
         private System.Windows.Forms.Button btnAzurirajKlijenta;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridView dgvKlijenti;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn oIBDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kontaktDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource klijentBindingSource;
+        private System.Windows.Forms.Button uiFullClientData;
     }
 }

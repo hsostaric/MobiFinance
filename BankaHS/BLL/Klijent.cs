@@ -40,7 +40,7 @@ namespace BankaHS.BLL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stednja> Stednja { get; set; }
 
-        public static List<Klijent> DOhvatiPopisSvihKlijenata()
+        public static List<Klijent> DohvatiPopisSvihKlijenata()
         {
             return KlijentRepository.Instance.DohvatiSveKlijente();
         }

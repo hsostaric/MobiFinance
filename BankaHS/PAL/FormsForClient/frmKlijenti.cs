@@ -1,4 +1,5 @@
-﻿using BankaHS.PAL.FormsForClient;
+﻿using BankaHS.BLL;
+using BankaHS.PAL.FormsForClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +14,12 @@ namespace BankaHS.PAL
 {
     public partial class frmKlijenti : Form
     {
-        public frmKlijenti() => InitializeComponent();
 
+        public frmKlijenti()
+        {
+            InitializeComponent();
+        }
+        private Klijent odabraniKlijent;
         private void btnNoviKlijent_Click(object sender, EventArgs e)
         {
 
@@ -27,9 +32,21 @@ namespace BankaHS.PAL
 
         private void frmKlijenti_Load(object sender, EventArgs e)
         {
+            prikaziZaposlenike();
+        }
+        private void prikaziZaposlenike()
+        {
+            try
+            {
+                klijentBindingSource.DataSource = null;
+                klijentBindingSource.DataSource = Klijent.DohvatiPopisSvihKlijenata();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Došlo je do pogreške", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
-
         private void nazadToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -39,6 +56,21 @@ namespace BankaHS.PAL
         {
             frmNoviKlijent newClient = new frmNoviKlijent();
             newClient.ShowDialog();
+        }
+
+        private void uiFullClientData_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                odabraniKlijent = (Klijent)klijentBindingSource.Current;
+                frmFullDataOfClient forma = new frmFullDataOfClient(odabraniKlijent);
+                forma.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Došlo je do greške", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

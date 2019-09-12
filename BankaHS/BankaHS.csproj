@@ -137,6 +137,12 @@
     <Compile Include="PAL\AdminForme\frmZaposlenici.Designer.cs">
       <DependentUpon>frmZaposlenici.cs</DependentUpon>
     </Compile>
+    <Compile Include="PAL\FormsForClient\frmFullDataOfClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAL\FormsForClient\frmFullDataOfClient.Designer.cs">
+      <DependentUpon>frmFullDataOfClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="PAL\FormsForClient\frmNoviKlijent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,12 +168,14 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="PAL\PALInterface\IForme.cs" />
+    <Compile Include="BLL\BLLInterface\IValidacije.cs" />
     <Compile Include="PAL\PocetanIzbornik.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PAL\PocetanIzbornik.Designer.cs">
       <DependentUpon>PocetanIzbornik.cs</DependentUpon>
     </Compile>
+    <Compile Include="BLL\Validacije\Validacija.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="PAL\AdminForme\AdminIzbornik.resx">
@@ -178,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PAL\AdminForme\frmZaposlenici.resx">
       <DependentUpon>frmZaposlenici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAL\FormsForClient\frmFullDataOfClient.resx">
+      <DependentUpon>frmFullDataOfClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PAL\FormsForClient\frmNoviKlijent.resx">
       <DependentUpon>frmNoviKlijent.cs</DependentUpon>
@@ -242,5 +253,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

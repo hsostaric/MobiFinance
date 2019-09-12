@@ -48,7 +48,16 @@
             this.uiKontaktKlijenta = new System.Windows.Forms.TextBox();
             this.uiAdresaKlijenta = new System.Windows.Forms.TextBox();
             this.uiAddUpdateClient = new System.Windows.Forms.Button();
+            this.errorEmail = new System.Windows.Forms.Label();
+            this.errorName = new System.Windows.Forms.Label();
+            this.errorSurname = new System.Windows.Forms.Label();
+            this.errorOIB = new System.Windows.Forms.Label();
+            this.errorContact = new System.Windows.Forms.Label();
+            this.errorAddress = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.tbValuePayment)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -108,24 +117,26 @@
             // rbAnswerYes
             // 
             this.rbAnswerYes.AutoSize = true;
-            this.rbAnswerYes.Location = new System.Drawing.Point(200, 326);
+            this.rbAnswerYes.Location = new System.Drawing.Point(177, 328);
             this.rbAnswerYes.Name = "rbAnswerYes";
             this.rbAnswerYes.Size = new System.Drawing.Size(44, 20);
             this.rbAnswerYes.TabIndex = 6;
             this.rbAnswerYes.Text = "Da";
             this.rbAnswerYes.UseVisualStyleBackColor = true;
+            this.rbAnswerYes.CheckedChanged += new System.EventHandler(this.rbAnswerYes_CheckedChanged);
             // 
             // rbAnswerNo
             // 
             this.rbAnswerNo.AutoSize = true;
             this.rbAnswerNo.Checked = true;
-            this.rbAnswerNo.Location = new System.Drawing.Point(260, 326);
+            this.rbAnswerNo.Location = new System.Drawing.Point(233, 328);
             this.rbAnswerNo.Name = "rbAnswerNo";
             this.rbAnswerNo.Size = new System.Drawing.Size(44, 20);
             this.rbAnswerNo.TabIndex = 7;
             this.rbAnswerNo.TabStop = true;
             this.rbAnswerNo.Text = "Ne";
             this.rbAnswerNo.UseVisualStyleBackColor = true;
+            this.rbAnswerNo.CheckedChanged += new System.EventHandler(this.rbAnswerNo_CheckedChanged);
             // 
             // label6
             // 
@@ -216,11 +227,115 @@
             this.uiAddUpdateClient.UseVisualStyleBackColor = true;
             this.uiAddUpdateClient.Click += new System.EventHandler(this.uiAddUpdateClient_Click);
             // 
+            // errorEmail
+            // 
+            this.errorEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.errorEmail.AutoSize = true;
+            this.errorEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.errorEmail.ForeColor = System.Drawing.Color.Red;
+            this.errorEmail.Location = new System.Drawing.Point(622, 164);
+            this.errorEmail.Name = "errorEmail";
+            this.errorEmail.Size = new System.Drawing.Size(0, 18);
+            this.errorEmail.TabIndex = 19;
+            // 
+            // errorName
+            // 
+            this.errorName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.errorName.AutoSize = true;
+            this.errorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.errorName.ForeColor = System.Drawing.Color.Red;
+            this.errorName.Location = new System.Drawing.Point(622, 71);
+            this.errorName.Name = "errorName";
+            this.errorName.Size = new System.Drawing.Size(0, 18);
+            this.errorName.TabIndex = 20;
+            // 
+            // errorSurname
+            // 
+            this.errorSurname.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.errorSurname.AutoSize = true;
+            this.errorSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.errorSurname.ForeColor = System.Drawing.Color.Red;
+            this.errorSurname.Location = new System.Drawing.Point(622, 114);
+            this.errorSurname.Name = "errorSurname";
+            this.errorSurname.Size = new System.Drawing.Size(0, 18);
+            this.errorSurname.TabIndex = 21;
+            // 
+            // errorOIB
+            // 
+            this.errorOIB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.errorOIB.AutoSize = true;
+            this.errorOIB.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.errorOIB.ForeColor = System.Drawing.Color.Red;
+            this.errorOIB.Location = new System.Drawing.Point(622, 209);
+            this.errorOIB.Name = "errorOIB";
+            this.errorOIB.Size = new System.Drawing.Size(0, 18);
+            this.errorOIB.TabIndex = 22;
+            // 
+            // errorContact
+            // 
+            this.errorContact.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.errorContact.AutoSize = true;
+            this.errorContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.errorContact.ForeColor = System.Drawing.Color.Red;
+            this.errorContact.Location = new System.Drawing.Point(622, 247);
+            this.errorContact.Name = "errorContact";
+            this.errorContact.Size = new System.Drawing.Size(0, 18);
+            this.errorContact.TabIndex = 23;
+            // 
+            // errorAddress
+            // 
+            this.errorAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.errorAddress.AutoSize = true;
+            this.errorAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.errorAddress.ForeColor = System.Drawing.Color.Red;
+            this.errorAddress.Location = new System.Drawing.Point(622, 290);
+            this.errorAddress.Name = "errorAddress";
+            this.errorAddress.Size = new System.Drawing.Size(0, 18);
+            this.errorAddress.TabIndex = 24;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nazadToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.menuStrip1.Size = new System.Drawing.Size(1016, 24);
+            this.menuStrip1.TabIndex = 25;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // nazadToolStripMenuItem
+            // 
+            this.nazadToolStripMenuItem.Name = "nazadToolStripMenuItem";
+            this.nazadToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.nazadToolStripMenuItem.Text = "Nazad";
+            this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
+            // 
             // frmNoviKlijent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1016, 573);
+            this.Controls.Add(this.errorAddress);
+            this.Controls.Add(this.errorContact);
+            this.Controls.Add(this.errorOIB);
+            this.Controls.Add(this.errorSurname);
+            this.Controls.Add(this.errorName);
+            this.Controls.Add(this.errorEmail);
+            this.Controls.Add(this.rbAnswerNo);
+            this.Controls.Add(this.rbAnswerYes);
             this.Controls.Add(this.uiAddUpdateClient);
             this.Controls.Add(this.uiAdresaKlijenta);
             this.Controls.Add(this.uiKontaktKlijenta);
@@ -232,21 +347,23 @@
             this.Controls.Add(this.tbValuePayment);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.rbAnswerNo);
-            this.Controls.Add(this.rbAnswerYes);
             this.Controls.Add(this.lasd);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmNoviKlijent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Novi klijent";
             this.Load += new System.EventHandler(this.frmNoviKlijent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tbValuePayment)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,5 +391,13 @@
         private System.Windows.Forms.TextBox uiKontaktKlijenta;
         private System.Windows.Forms.TextBox uiAdresaKlijenta;
         private System.Windows.Forms.Button uiAddUpdateClient;
+        private System.Windows.Forms.Label errorEmail;
+        private System.Windows.Forms.Label errorName;
+        private System.Windows.Forms.Label errorSurname;
+        private System.Windows.Forms.Label errorOIB;
+        private System.Windows.Forms.Label errorContact;
+        private System.Windows.Forms.Label errorAddress;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem nazadToolStripMenuItem;
     }
 }

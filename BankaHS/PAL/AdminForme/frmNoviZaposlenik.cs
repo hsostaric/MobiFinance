@@ -1,5 +1,6 @@
 ﻿using BankaHS.BLL;
 using BankaHS.PAL.PALInterface;
+using BankaHS.PAL.Validacije;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,13 @@ namespace BankaHS.PAL.AdminForme
 {
     public partial class frmNoviZaposlenik : Form, IForme
     {
+        private IValidacije validacija;
         private bool uredi = false;
         private Zaposlenik zaposlenik = null;
         public frmNoviZaposlenik()
         {
             InitializeComponent();
+            validacija = new Validacija();
         }
 
         public frmNoviZaposlenik(bool _uredi, Zaposlenik _zaposlenik)
@@ -78,12 +81,16 @@ namespace BankaHS.PAL.AdminForme
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (provjeraImena(txtIme.Text).Equals(false)) errorIme.Text = "Morate unijeti ime";
-            if (provjeraPrezimena(txtPrezime.Text).Equals(false)) errorPrezime.Text = "Morate unijeti prezime";
-            if (provjeraEmaila(txtEmail.Text).Equals(false)) errorEmail.Text = "Email nije unešen ili nije u odgovarajućem formatu";
-            if (provjeraKorisnickogImena(txtKorisnickoIme.Text).Equals(false)) errorKorisnickoIme.Text = "Korisničko ime nije uneseno ili nije u odgovarajućem formatu";
-            if (provjeraLozinke(txtLozinka.Text, txtPonovljenaLozinka.Text).Equals(false)) errorLozinke.Text = "Lozinke se moraju podudarati";
-
+            if (validacija.provjeraImena(txtIme.Text).Equals(false)) errorIme.Text = "Morate unijeti ime";
+            else errorIme.Text = "";
+            if (validacija.provjeraPrezimena(txtPrezime.Text).Equals(false)) errorPrezime.Text = "Morate unijeti prezime";
+            else errorPrezime.Text = "";
+            if (validacija.provjeraEmaila(txtEmail.Text).Equals(false)) errorEmail.Text = "Email nije unešen ili nije u odgovarajućem formatu";
+            else errorEmail.Text = "";
+            if (validacija.provjeraKorisnickogImena(txtKorisnickoIme.Text).Equals(false)) errorKorisnickoIme.Text = "Korisničko ime nije uneseno ili nije u odgovarajućem formatu";
+            else errorKorisnickoIme.Text = "";
+            if (validacija.provjeraLozinke(txtLozinka.Text, txtPonovljenaLozinka.Text).Equals(false)) errorLozinke.Text = "Lozinke se moraju podudarati";
+            if (validacija.provjeraLozinke(txtLozinka.Text, txtPonovljenaLozinka.Text).Equals(true)) errorLozinke.Text = "";
             else
             {
                 if (uredi == false)
@@ -99,7 +106,6 @@ namespace BankaHS.PAL.AdminForme
                     {
                         MessageBox.Show(ex.Message);
                     }
-
                 }
                 else
                 {
@@ -117,37 +123,7 @@ namespace BankaHS.PAL.AdminForme
                 this.Close();
             }
         }
-        private bool provjeraImena(string ime)
-        {
-            return (ime.Length == 0) ? false : true;
-        }
-        private bool provjeraPrezimena(string prezime)
-        {
-            return prezime.Length > 0 ? true : false;
-        }
 
-        private bool provjeraEmaila(string email)
-        {
-
-            Regex regex = new Regex(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
-            Match match = regex.Match(email);
-            return match.Success && email.Length > 0 ? true : false;
-        }
-        public bool provjeraKorisnickogImena(string korisnickoIme)
-        {
-            string reg = "^[a-z0-9_-]{3,15}$";
-            return provjeraRegexa(korisnickoIme, reg) && korisnickoIme.Length > 0 ? true : false;
-        }
-        private bool provjeraRegexa(string polje, string izraz)
-        {
-            Regex regex = new Regex(@izraz);
-            Match match = regex.Match(polje);
-            return match.Success ? true : false;
-        }
-        private bool provjeraLozinke(string lozinka, string ponovljenaLozinka)
-        {
-            return (lozinka.Equals(ponovljenaLozinka) && lozinka.Length > 0) ? true : false;
-        }
         private void DohvatiTipoveZaposlenika()
         {
             tipzaposlenikaBindingSource.DataSource = null;
