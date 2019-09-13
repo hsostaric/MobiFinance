@@ -63,5 +63,10 @@ namespace BankaHS.BLL
         {
             KlijentRepository.Instance.DodajKlijentaUBazu(this);
         }
+        public void UrediKlijenta(string ime, string prezime, string OIB, string email, string kontakt, string adresa, bool zaposlenje, double primanja)
+        {
+
+            KlijentRepository.Instance.PohraniPromjeneKlijenta(this, ime, prezime, OIB, email, kontakt, adresa, zaposlenje, primanja);
+        }
     }
 }

@@ -74,5 +74,13 @@ namespace BankaHS.PAL
             }
 
         }
+
+        private void btnAzurirajKlijenta_Click(object sender, EventArgs e)
+        {
+            odabraniKlijent = (Klijent)klijentBindingSource.Current;
+            frmNoviKlijent forma = new frmNoviKlijent(odabraniKlijent);
+            forma.ShowDialog();
+            prikaziKlijente();
+        }
     }
 }

@@ -18,10 +18,17 @@ namespace BankaHS.PAL.FormsForClient
     public partial class frmNoviKlijent : Form
     {
         private IValidacije validacija;
+        private Klijent odabraniKlijent = null;
         public frmNoviKlijent()
         {
             InitializeComponent();
             validacija = new Validacija();
+        }
+        public frmNoviKlijent(Klijent klijent)
+        {
+            InitializeComponent();
+            validacija = new Validacija();
+            odabraniKlijent = klijent;
         }
 
         private void tbValue_Scroll(object sender, EventArgs e)
@@ -31,25 +38,58 @@ namespace BankaHS.PAL.FormsForClient
 
         private void frmNoviKlijent_Load(object sender, EventArgs e)
         {
+            if (odabraniKlijent != null)
+            {
+                uiImeKlijenta.Text = odabraniKlijent.Ime;
+                uiPrezimeKlijenta.Text = odabraniKlijent.Prezime;
+                uiEmailKlijenta.Text = odabraniKlijent.Email;
+                uiOIBKlijenta.Text = odabraniKlijent.OIB;
+                uiAdresaKlijenta.Text = odabraniKlijent.Adresa;
+                oznaciRadioButton();
+                tbValuePayment.Value = provjeriOznaceniRadioButton().Equals(true) ? (int)odabraniKlijent.Primanja : 0;
+                uiAddUpdateClient.Text = "Ažuriraj";
+                lnTrackBarValue.Text = String.Format(tbValuePayment.Value.ToString() + " HRK");
+
+            }
             tbValuePayment.Enabled = provjeriOznaceniRadioButton();
 
         }
 
         private void uiAddUpdateClient_Click(object sender, EventArgs e)
+
         {
-            if (validacija.provjeraEmaila(uiEmailKlijenta.Text).Equals(false)) errorEmail.Text = "E-mail nije u pravilnom formatu.";
+            if (odabraniKlijent == null)
+            {
+                if (validacija.provjeraEmaila(uiEmailKlijenta.Text).Equals(false)) errorEmail.Text = "E-mail nije u pravilnom formatu.";
 
-            if (validacija.provjeraImena(uiImeKlijenta.Text).Equals(false)) errorName.Text = "Morate unijeti ime.";
+                if (validacija.provjeraImena(uiImeKlijenta.Text).Equals(false)) errorName.Text = "Morate unijeti ime.";
 
-            if (validacija.provjeriOIB(uiOIBKlijenta.Text).Equals(false)) errorOIB.Text = "OIB nije u pravilnom formatu.";
+                if (validacija.provjeriOIB(uiOIBKlijenta.Text).Equals(false)) errorOIB.Text = "OIB nije u pravilnom formatu.";
 
-            if (validacija.provjeraPrezimena(uiPrezimeKlijenta.Text).Equals(false)) errorSurname.Text = "Morate unijeti prezime.";
+                if (validacija.provjeraPrezimena(uiPrezimeKlijenta.Text).Equals(false)) errorSurname.Text = "Morate unijeti prezime.";
 
+                else
+                {
+
+                    dodajKlijenta();
+                    this.Close();
+                }
+            }
             else
             {
+                if (validacija.provjeraEmaila(uiEmailKlijenta.Text).Equals(false)) errorEmail.Text = "E-mail nije u pravilnom formatu.";
 
-                dodajKlijenta();
-                this.Close();
+                if (validacija.provjeraImena(uiImeKlijenta.Text).Equals(false)) errorName.Text = "Morate unijeti ime.";
+
+                if (validacija.provjeriOIB(uiOIBKlijenta.Text).Equals(false)) errorOIB.Text = "OIB nije u pravilnom formatu.";
+
+                if (validacija.provjeraPrezimena(uiPrezimeKlijenta.Text).Equals(false)) errorSurname.Text = "Morate unijeti prezime.";
+                else
+                {
+                    urediKlijenta();
+                    Close();
+                }
+
             }
         }
 
@@ -57,16 +97,37 @@ namespace BankaHS.PAL.FormsForClient
         {
             try
             {
+                double vrijednostPrimanja = provjeriOznaceniRadioButton().Equals(true) ? tbValuePayment.Value : 0;
                 Klijent noviKlijent = new Klijent(uiImeKlijenta.Text, uiPrezimeKlijenta.Text, uiOIBKlijenta.Text,
-                    uiEmailKlijenta.Text, uiKontaktKlijenta.Text, uiAdresaKlijenta.Text, (provjeriOznaceniRadioButton()), tbValuePayment.Value);
+                    uiEmailKlijenta.Text, uiKontaktKlijenta.Text, uiAdresaKlijenta.Text, (provjeriOznaceniRadioButton()), vrijednostPrimanja);
                 noviKlijent.DodajKlijenta();
                 MessageBox.Show("Novi klijent je uspješno dodan u bazu podataka", "Poruka uspjeha", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+
                 MessageBox.Show("Došlo je do pogreške", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+
+
+        private void urediKlijenta()
+        {
+            try
+            {
+                double vrijednostPrimanja = provjeriOznaceniRadioButton().Equals(true) ? tbValuePayment.Value : 0;
+                odabraniKlijent.UrediKlijenta(uiImeKlijenta.Text, uiPrezimeKlijenta.Text, uiOIBKlijenta.Text,
+                        uiEmailKlijenta.Text, uiKontaktKlijenta.Text, uiAdresaKlijenta.Text, (provjeriOznaceniRadioButton()), vrijednostPrimanja);
+                MessageBox.Show("Uspješno ste uredili odabranog klijenta", "Poruka uspjeha", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Došlo je do pogreške", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
         private void rbAnswerNo_CheckedChanged(object sender, EventArgs e)
         {
@@ -86,6 +147,11 @@ namespace BankaHS.PAL.FormsForClient
         private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void oznaciRadioButton()
+        {
+            if (odabraniKlijent.StalnoZaposlenje == true) rbAnswerYes.Checked = true;
+            else rbAnswerNo.Checked = true;
         }
     }
 }

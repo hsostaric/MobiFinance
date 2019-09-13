@@ -47,5 +47,21 @@ namespace BankaHS.DAL.Repositories
                 db.SaveChanges();
             }
         }
+        public void PohraniPromjeneKlijenta(Klijent uredi, string ime, string prezime, string OIB, string email, string kontakt, string adresa, bool zaposlenje, double primanja)
+        {
+            using (var db = new BankaEntities())
+            {
+                db.Klijent.Attach(uredi);
+                uredi.Ime = ime;
+                uredi.Prezime = prezime;
+                uredi.OIB = OIB;
+                uredi.Email = email;
+                uredi.Kontakt = kontakt;
+                uredi.Adresa = adresa;
+                uredi.StalnoZaposlenje = zaposlenje;
+                uredi.Primanja = primanja;
+                db.SaveChanges();
+            }
+        }
     }
 }

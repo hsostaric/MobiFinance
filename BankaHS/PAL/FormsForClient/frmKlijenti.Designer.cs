@@ -84,13 +84,14 @@
             this.btnAzurirajKlijenta.TabIndex = 3;
             this.btnAzurirajKlijenta.Text = "Ažuriraj klijenta";
             this.btnAzurirajKlijenta.UseVisualStyleBackColor = true;
+            this.btnAzurirajKlijenta.Click += new System.EventHandler(this.btnAzurirajKlijenta_Click);
             // 
             // dgvKlijenti
             // 
             this.dgvKlijenti.AllowUserToAddRows = false;
             this.dgvKlijenti.AllowUserToDeleteRows = false;
-            this.dgvKlijenti.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvKlijenti.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvKlijenti.AutoGenerateColumns = false;
             this.dgvKlijenti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
