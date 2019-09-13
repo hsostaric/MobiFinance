@@ -12,7 +12,7 @@ namespace BankaHS.PAL.Validacije
     {
         public bool provjeraEmaila(string email)
         {
-            string regex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+            string regex = @"^(?=^.{10,30}$)[A-z\d][A-z\d]*\.?[A-z\d]*@[A-z\d]+\.[A-z\d]{2,}$";
             return provjeraRegexa(email, regex) && email.Length > 0 ? true : false;
         }
 

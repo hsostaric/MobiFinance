@@ -22,6 +22,20 @@ namespace BankaHS.BLL
             this.Racun = new HashSet<Racun>();
             this.Stednja = new HashSet<Stednja>();
         }
+        public Klijent(string ime, string prezime, string OIB, string email, string kontakt, string adresa, bool zaposlenje, double primanja)
+        {
+            this.Ime = ime;
+            this.Prezime = prezime;
+            this.OIB = OIB;
+            this.Email = email;
+            this.Kontakt = kontakt;
+            this.Adresa = adresa;
+            this.StalnoZaposlenje = zaposlenje;
+            this.Primanja = primanja;
+            this.Kredit_ = new HashSet<Kredit_>();
+            this.Racun = new HashSet<Racun>();
+            this.Stednja = new HashSet<Stednja>();
+        }
 
         public int Id { get; set; }
         public string Ime { get; set; }
@@ -43,6 +57,11 @@ namespace BankaHS.BLL
         public static List<Klijent> DohvatiPopisSvihKlijenata()
         {
             return KlijentRepository.Instance.DohvatiSveKlijente();
+        }
+
+        public void DodajKlijenta()
+        {
+            KlijentRepository.Instance.DodajKlijentaUBazu(this);
         }
     }
 }

@@ -32,9 +32,9 @@ namespace BankaHS.PAL
 
         private void frmKlijenti_Load(object sender, EventArgs e)
         {
-            prikaziZaposlenike();
+            prikaziKlijente();
         }
-        private void prikaziZaposlenike()
+        private void prikaziKlijente()
         {
             try
             {
@@ -56,6 +56,8 @@ namespace BankaHS.PAL
         {
             frmNoviKlijent newClient = new frmNoviKlijent();
             newClient.ShowDialog();
+            prikaziKlijente();
+
         }
 
         private void uiFullClientData_Click(object sender, EventArgs e)

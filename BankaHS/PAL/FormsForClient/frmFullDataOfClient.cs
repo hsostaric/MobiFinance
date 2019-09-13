@@ -44,5 +44,7 @@ namespace BankaHS.PAL.FormsForClient
         {
             Close();
         }
+
+
     }
 }

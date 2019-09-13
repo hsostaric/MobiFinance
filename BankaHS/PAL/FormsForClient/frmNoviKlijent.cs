@@ -1,4 +1,5 @@
 ﻿
+using BankaHS.BLL;
 using BankaHS.PAL.PALInterface;
 using BankaHS.PAL.Validacije;
 using System;
@@ -37,33 +38,36 @@ namespace BankaHS.PAL.FormsForClient
         private void uiAddUpdateClient_Click(object sender, EventArgs e)
         {
             if (validacija.provjeraEmaila(uiEmailKlijenta.Text).Equals(false)) errorEmail.Text = "E-mail nije u pravilnom formatu.";
-            else errorEmail.Text = "";
+
             if (validacija.provjeraImena(uiImeKlijenta.Text).Equals(false)) errorName.Text = "Morate unijeti ime.";
-            else errorName.Text = "";
+
             if (validacija.provjeriOIB(uiOIBKlijenta.Text).Equals(false)) errorOIB.Text = "OIB nije u pravilnom formatu.";
-            else errorOIB.Text = "";
+
             if (validacija.provjeraPrezimena(uiPrezimeKlijenta.Text).Equals(false)) errorSurname.Text = "Morate unijeti prezime.";
-            if (validacija.provjeraPrezimena(uiPrezimeKlijenta.Text).Equals(true)) errorSurname.Text = "";
+
             else
             {
 
+                dodajKlijenta();
+                this.Close();
             }
         }
-        private bool provjeraImena()
-        {
-            return uiImeKlijenta.Text.Length.Equals(0) ? false : true;
-        }
-        private bool provjeraPrezimena()
-        {
-            return uiPrezimeKlijenta.Text.Length.Equals(0) ? false : true;
-        }
-        private bool ispravnostEmaila()
-        {
-            Regex regex = new Regex(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
-            Match match = regex.Match(uiEmailKlijenta.Text);
-            return match.Success && uiEmailKlijenta.Text.Length > 0 ? true : false;
-        }
 
+        private void dodajKlijenta()
+        {
+            try
+            {
+                Klijent noviKlijent = new Klijent(uiImeKlijenta.Text, uiPrezimeKlijenta.Text, uiOIBKlijenta.Text,
+                    uiEmailKlijenta.Text, uiKontaktKlijenta.Text, uiAdresaKlijenta.Text, (provjeriOznaceniRadioButton()), tbValuePayment.Value);
+                noviKlijent.DodajKlijenta();
+                MessageBox.Show("Novi klijent je uspješno dodan u bazu podataka", "Poruka uspjeha", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Došlo je do pogreške", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void rbAnswerNo_CheckedChanged(object sender, EventArgs e)
         {
             tbValuePayment.Enabled = provjeriOznaceniRadioButton();

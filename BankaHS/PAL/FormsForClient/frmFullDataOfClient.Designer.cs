@@ -53,8 +53,8 @@
             // 
             // clientData
             // 
-            this.clientData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.clientData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.clientData.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.clientData.Controls.Add(this.label16);
@@ -128,6 +128,7 @@
             this.label12.Size = new System.Drawing.Size(60, 20);
             this.label12.TabIndex = 11;
             this.label12.Text = "label12";
+
             // 
             // label11
             // 

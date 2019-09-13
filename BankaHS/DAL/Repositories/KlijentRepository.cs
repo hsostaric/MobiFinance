@@ -38,5 +38,14 @@ namespace BankaHS.DAL.Repositories
                 return db.Klijent.ToList();
             }
         }
+
+        public void DodajKlijentaUBazu(Klijent noviKlijent)
+        {
+            using (var db = new BankaEntities())
+            {
+                db.Klijent.Add(noviKlijent);
+                db.SaveChanges();
+            }
+        }
     }
 }
