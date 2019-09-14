@@ -68,5 +68,38 @@ namespace BankaHS.BLL
 
             KlijentRepository.Instance.PohraniPromjeneKlijenta(this, ime, prezime, OIB, email, kontakt, adresa, zaposlenje, primanja);
         }
+
+        public static List<Klijent> PretraziKlijente(string ime, string prezime, string OIB)
+        {
+            if (ime.Length > 0 && prezime.Length == 0 && OIB.Length == 0)
+            {
+                return KlijentRepository.Instance.DohvatiSveKlijente().FindAll(x => x.Ime.IndexOf(ime) > -1);
+            }
+            else if (prezime.Length > 0 && OIB.Length == 0 && ime.Length == 0)
+            {
+                return KlijentRepository.Instance.DohvatiSveKlijente().FindAll(x => x.Prezime.IndexOf(prezime) > -1);
+            }
+            else if (OIB.Length > 0 && prezime.Length == 0 && ime.Length == 0)
+            {
+                return KlijentRepository.Instance.DohvatiSveKlijente().FindAll(x => x.OIB.IndexOf(OIB) > -1);
+            }
+            else if (ime.Length > 0 && prezime.Length > 0 && OIB.Length == 0)
+            {
+                return KlijentRepository.Instance.DohvatiSveKlijente().FindAll(x => x.Ime.IndexOf(ime) > -1 && x.Prezime.IndexOf(prezime) > -1);
+            }
+            else if (ime.Length > 0 && OIB.Length > 0 && prezime.Length == 0)
+            {
+                return KlijentRepository.Instance.DohvatiSveKlijente().FindAll(x => x.Ime.IndexOf(ime) > -1 && x.OIB.IndexOf(OIB) > -1);
+            }
+            else if (prezime.Length > 0 && OIB.Length > 0 && ime.Length == 0)
+            {
+                return KlijentRepository.Instance.DohvatiSveKlijente().FindAll(x => x.Prezime.IndexOf(prezime) > -1 && x.OIB.IndexOf(OIB) > -1);
+            }
+            else if (prezime.Length > 0 && OIB.Length > 0 && ime.Length > 0)
+            {
+                return KlijentRepository.Instance.DohvatiSveKlijente().FindAll(x => x.Prezime.IndexOf(prezime) > -1 && x.OIB.IndexOf(OIB) > -1 && x.Prezime.IndexOf(prezime) > -1);
+            }
+            else return null;
+        }
     }
 }

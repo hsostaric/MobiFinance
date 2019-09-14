@@ -32,14 +32,14 @@ namespace BankaHS.PAL
 
         private void frmKlijenti_Load(object sender, EventArgs e)
         {
-            prikaziKlijente();
+            prikaziKlijente(Klijent.DohvatiPopisSvihKlijenata());
         }
-        private void prikaziKlijente()
+        private void prikaziKlijente(List<Klijent> lista)
         {
             try
             {
                 klijentBindingSource.DataSource = null;
-                klijentBindingSource.DataSource = Klijent.DohvatiPopisSvihKlijenata();
+                klijentBindingSource.DataSource = lista;
             }
             catch (Exception ex)
             {
@@ -56,7 +56,7 @@ namespace BankaHS.PAL
         {
             frmNoviKlijent newClient = new frmNoviKlijent();
             newClient.ShowDialog();
-            prikaziKlijente();
+            prikaziKlijente(Klijent.DohvatiPopisSvihKlijenata());
 
         }
 
@@ -80,7 +80,32 @@ namespace BankaHS.PAL
             odabraniKlijent = (Klijent)klijentBindingSource.Current;
             frmNoviKlijent forma = new frmNoviKlijent(odabraniKlijent);
             forma.ShowDialog();
-            prikaziKlijente();
+            prikaziKlijente(Klijent.DohvatiPopisSvihKlijenata());
+        }
+
+        private void uiReset_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                prikaziKlijente(Klijent.DohvatiPopisSvihKlijenata());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Došlo je do greške", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void uiSearchClients_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                prikaziKlijente(Klijent.PretraziKlijente(uiClientName.Text, uiClientSurname.Text, uiClientOIB.Text));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Došlo je do greške", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

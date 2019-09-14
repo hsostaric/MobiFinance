@@ -84,7 +84,8 @@ namespace BankaHS.PAL.FormsForClient
                 if (validacija.provjeriOIB(uiOIBKlijenta.Text).Equals(false)) errorOIB.Text = "OIB nije u pravilnom formatu.";
 
                 if (validacija.provjeraPrezimena(uiPrezimeKlijenta.Text).Equals(false)) errorSurname.Text = "Morate unijeti prezime.";
-                else
+                else if (validacija.provjeraPrezimena(uiPrezimeKlijenta.Text).Equals(true) && validacija.provjeraImena(uiImeKlijenta.Text).Equals(true)
+                    && validacija.provjeriOIB(uiOIBKlijenta.Text).Equals(true) && validacija.provjeraPrezimena(uiPrezimeKlijenta.Text).Equals(true))
                 {
                     urediKlijenta();
                     Close();
