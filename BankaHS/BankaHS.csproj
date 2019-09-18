@@ -117,6 +117,7 @@
       <DependentUpon>BankaEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Repositories\KlijentRepository.cs" />
+    <Compile Include="DAL\Repositories\StednjaRepository.cs" />
     <Compile Include="DAL\Repositories\TipZaposlenikaRepository.cs" />
     <Compile Include="DAL\Repositories\ZaposlenikRepository.cs" />
     <Compile Include="PAL\AdminForme\AdminIzbornik.cs">
@@ -176,6 +177,12 @@
       <DependentUpon>PocetanIzbornik.cs</DependentUpon>
     </Compile>
     <Compile Include="BLL\Validacije\Validacija.cs" />
+    <Compile Include="PAL\Stednje\OtvoriStednju.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAL\Stednje\OtvoriStednju.Designer.cs">
+      <DependentUpon>OtvoriStednju.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="PAL\AdminForme\AdminIzbornik.resx">
@@ -204,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PAL\PocetanIzbornik.resx">
       <DependentUpon>PocetanIzbornik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAL\Stednje\OtvoriStednju.resx">
+      <DependentUpon>OtvoriStednju.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

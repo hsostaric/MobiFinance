@@ -2,6 +2,7 @@
 using BankaHS.PAL;
 using BankaHS.PAL.AdminForme;
 using BankaHS.PAL.PALInterface;
+using BankaHS.PAL.Stednje;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -100,6 +101,14 @@ namespace BankaHS.PresentationLayer
         private void tbnTransakcije_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnStednje_Click(object sender, EventArgs e)
+        {
+            OtvoriStednju forma = new OtvoriStednju();
+            this.Hide();
+            forma.ShowDialog();
+            this.Show();
         }
     }
 }

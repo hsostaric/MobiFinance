@@ -11,9 +11,24 @@ namespace BankaHS.BLL
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Stednja
     {
+
+        public Stednja(double glavnica, int rokOrocenja, string naziv, Klijent odabraniKlijent)
+        {
+            Status = 1;
+            Glavnica = glavnica;
+            RokOrocenja = rokOrocenja;
+            Naziv = naziv;
+            Zaposlenik = Zaposlenik.PrijavljeniZaposlenik;
+            Klijent = odabraniKlijent;
+            EKS = vratiEfektivnuKamatnuStopu();
+            RKS = IzracunajKonformniKamatniracun();
+            KonacanIznos = IzracunajGlavniIznosStednje();
+            Kamate = VratiKamateStednje();
+
+        }
         public int Id { get; set; }
         public int Status { get; set; }
         public double Glavnica { get; set; }
@@ -26,8 +41,40 @@ namespace BankaHS.BLL
         public double EKS { get; set; }
         public int RokOrocenja { get; set; }
         public string Naziv { get; set; }
-    
+
         public virtual Klijent Klijent { get; set; }
         public virtual Zaposlenik Zaposlenik { get; set; }
+
+        public double vratiEfektivnuKamatnuStopu()
+        {
+            if (this.RokOrocenja >= 6 && this.RokOrocenja < 12) return 0.07;
+            if (RokOrocenja >= 12 && RokOrocenja < 24) return 0.25;
+            if (RokOrocenja >= 24 && RokOrocenja < 36) return 0.55;
+            if (RokOrocenja >= 36 && RokOrocenja < 48) return 1;
+            if (RokOrocenja >= 48 && RokOrocenja < 60) return 1.20;
+            if (RokOrocenja == 60) return 1.45;
+            if (RokOrocenja > 60) return 1.70;
+            else return 0;
+        }
+
+        public double IzracunajDekurzivniKamatniFaktor()
+        {
+            return 1 + (EKS / 100);
+        }
+
+        public double IzracunajKonformniKamatniracun()
+        {
+            return Math.Pow(IzracunajDekurzivniKamatniFaktor(), 1 / 12);
+        }
+
+        public double IzracunajGlavniIznosStednje()
+        {
+            return Math.Round(this.Glavnica * Math.Pow(IzracunajKonformniKamatniracun(), RokOrocenja), 2);
+        }
+
+        public double VratiKamateStednje()
+        {
+            return IzracunajGlavniIznosStednje() - Glavnica;
+        }
     }
 }

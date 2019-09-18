@@ -79,6 +79,7 @@
             this.btnStednje.TabIndex = 1;
             this.btnStednje.Text = "Otvaranje štednje";
             this.btnStednje.UseVisualStyleBackColor = true;
+            this.btnStednje.Click += new System.EventHandler(this.btnStednje_Click);
             // 
             // btnOtplatnaTablica
             // 
