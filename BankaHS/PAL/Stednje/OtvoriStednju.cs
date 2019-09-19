@@ -50,7 +50,17 @@ namespace BankaHS.PAL.Stednje
 
         private void button1_Click(object sender, EventArgs e)
         {
-            prikaziDetaljeStednje();
+            if (uiNaziv.Text.Length == 0)
+            {
+                uiGreskaImena.Text = "Morate unijeti ime štednje.";
+                uiGreskaImena.ForeColor = Color.Red;
+                gb1.Visible = false;
+            }
+            else
+            {
+                gb1.Visible = true;
+                prikaziDetaljeStednje();
+            }
         }
 
         public void prikaziDetaljeStednje()
@@ -59,7 +69,37 @@ namespace BankaHS.PAL.Stednje
             rokOrocenja = int.Parse(uiMjeseciStednje.Value.ToString());
             odabraniKlijent = (Klijent)klijentBindingSource.Current;
             stednja = new Stednja(glavnica, rokOrocenja, uiNaziv.Text, odabraniKlijent);
-            MessageBox.Show(stednja.EKS.ToString());
+            popuniPodatke(stednja);
+        }
+
+        private void popuniPodatke(Stednja s)
+        {
+            uiStednjaImelb.Text = s.Naziv;
+            uiEfektivnaValue.Text = s.EKS.ToString();
+            uiUkupnaVijednostValue.Text = s.KonacanIznos.ToString("00.00");
+
+        }
+
+        private void uiDodajStednju_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                glavnica = double.Parse(uiVrijednostStednje.Value.ToString());
+                rokOrocenja = int.Parse(uiMjeseciStednje.Value.ToString());
+                odabraniKlijent = (Klijent)klijentBindingSource.Current;
+                stednja = new Stednja(glavnica, rokOrocenja, uiNaziv.Text, odabraniKlijent);
+                odabraniKlijent.dodijeliKlijentuStednju(stednja);
+                MessageBox.Show("Štednja je ugovorena", "Poruka uspjeha", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Došlo je do pogreške prilikom dodavanja !", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void uiZakljucajStednju_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

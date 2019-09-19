@@ -101,5 +101,10 @@ namespace BankaHS.BLL
             }
             else return null;
         }
+
+        public void dodijeliKlijentuStednju(Stednja s)
+        {
+            StednjaRepository.Instance.dodajStednju(s, this);
+        }
     }
 }

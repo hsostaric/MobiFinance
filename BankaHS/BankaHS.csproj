@@ -177,6 +177,18 @@
       <DependentUpon>PocetanIzbornik.cs</DependentUpon>
     </Compile>
     <Compile Include="BLL\Validacije\Validacija.cs" />
+    <Compile Include="PAL\Stednje\FormaZaPrikazStednjiApstrakt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAL\Stednje\FormaZaPrikazStednjiApstrakt.Designer.cs">
+      <DependentUpon>FormaZaPrikazStednjiApstrakt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAL\Stednje\frmAktivneStednjeKlijenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAL\Stednje\frmAktivneStednjeKlijenta.Designer.cs">
+      <DependentUpon>frmAktivneStednjeKlijenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="PAL\Stednje\OtvoriStednju.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +224,9 @@
     <EmbeddedResource Include="PAL\PocetanIzbornik.resx">
       <DependentUpon>PocetanIzbornik.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PAL\Stednje\FormaZaPrikazStednjiApstrakt.resx">
+      <DependentUpon>FormaZaPrikazStednjiApstrakt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PAL\Stednje\OtvoriStednju.resx">
       <DependentUpon>OtvoriStednju.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +248,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BankaHS.BLL.Klijent.datasource" />
+    <None Include="Properties\DataSources\BankaHS.BLL.Stednja.datasource" />
     <None Include="Properties\DataSources\BankaHS.BLL.Tip_zaposlenika.datasource" />
     <None Include="Properties\DataSources\BankaHS.BLL.Zaposlenik.datasource" />
     <None Include="Properties\Settings.settings">

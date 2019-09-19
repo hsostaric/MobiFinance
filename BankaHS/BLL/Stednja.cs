@@ -47,11 +47,11 @@ namespace BankaHS.BLL
 
         public double vratiEfektivnuKamatnuStopu()
         {
-            if (this.RokOrocenja >= 6 && this.RokOrocenja < 12) return 0.07;
-            if (RokOrocenja >= 12 && RokOrocenja < 24) return 0.25;
-            if (RokOrocenja >= 24 && RokOrocenja < 36) return 0.55;
-            if (RokOrocenja >= 36 && RokOrocenja < 48) return 1;
-            if (RokOrocenja >= 48 && RokOrocenja < 60) return 1.20;
+            if (this.RokOrocenja >= 6 && this.RokOrocenja < 12) return 0.07d;
+            if (RokOrocenja >= 12 && RokOrocenja < 24) return 0.25f;
+            if (RokOrocenja >= 24 && RokOrocenja < 36) return 0.55d;
+            if (RokOrocenja >= 36 && RokOrocenja < 48) return 1d;
+            if (RokOrocenja >= 48 && RokOrocenja < 60) return 1.20d;
             if (RokOrocenja == 60) return 1.45;
             if (RokOrocenja > 60) return 1.70;
             else return 0;
@@ -64,12 +64,12 @@ namespace BankaHS.BLL
 
         public double IzracunajKonformniKamatniracun()
         {
-            return Math.Pow(IzracunajDekurzivniKamatniFaktor(), 1 / 12);
+            return Math.Round(Math.Pow(IzracunajDekurzivniKamatniFaktor(), (double)1 / 12), 7);
         }
 
         public double IzracunajGlavniIznosStednje()
         {
-            return Math.Round(this.Glavnica * Math.Pow(IzracunajKonformniKamatniracun(), RokOrocenja), 2);
+            return this.Glavnica * Math.Pow(IzracunajKonformniKamatniracun(), RokOrocenja);
         }
 
         public double VratiKamateStednje()
