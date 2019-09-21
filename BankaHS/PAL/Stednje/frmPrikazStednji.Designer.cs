@@ -40,7 +40,7 @@
             this.rokOrocenjaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nazivDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stednjaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.uiZavrsiStednju = new System.Windows.Forms.Button();
+            this.uiZakljucajStednju = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stednjaBindingSource)).BeginInit();
@@ -132,26 +132,29 @@
             // 
             this.stednjaBindingSource.DataSource = typeof(BankaHS.BLL.Stednja);
             // 
-            // uiZavrsiStednju
+            // uiZakljucajStednju
             // 
-            this.uiZavrsiStednju.Location = new System.Drawing.Point(261, 251);
-            this.uiZavrsiStednju.Name = "uiZavrsiStednju";
-            this.uiZavrsiStednju.Size = new System.Drawing.Size(202, 49);
-            this.uiZavrsiStednju.TabIndex = 2;
-            this.uiZavrsiStednju.Text = "button1";
-            this.uiZavrsiStednju.UseVisualStyleBackColor = true;
+            this.uiZakljucajStednju.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.uiZakljucajStednju.Location = new System.Drawing.Point(261, 251);
+            this.uiZakljucajStednju.Name = "uiZakljucajStednju";
+            this.uiZakljucajStednju.Size = new System.Drawing.Size(202, 49);
+            this.uiZakljucajStednju.TabIndex = 2;
+            this.uiZakljucajStednju.Text = "Zakljucaj";
+            this.uiZakljucajStednju.UseVisualStyleBackColor = true;
+            this.uiZakljucajStednju.Click += new System.EventHandler(this.uiZakljucajStednju_Click);
             // 
             // frmPrikazStednji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(779, 329);
-            this.Controls.Add(this.uiZavrsiStednju);
+            this.Controls.Add(this.uiZakljucajStednju);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmPrikazStednji";
             this.Text = "frmStednjeKlijenta";
+            this.Load += new System.EventHandler(this.frmPrikazStednji_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -174,6 +177,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn eKSDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rokOrocenjaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazivDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button uiZavrsiStednju;
+        private System.Windows.Forms.Button uiZakljucajStednju;
     }
 }

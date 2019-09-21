@@ -9,6 +9,7 @@
 
 namespace BankaHS.BLL
 {
+    using BankaHS.DAL.Repositories;
     using System;
     using System.Collections.Generic;
 
@@ -27,6 +28,9 @@ namespace BankaHS.BLL
             RKS = IzracunajKonformniKamatniracun();
             KonacanIznos = IzracunajGlavniIznosStednje();
             Kamate = VratiKamateStednje();
+        }
+        public Stednja()
+        {
 
         }
         public int Id { get; set; }
@@ -76,5 +80,12 @@ namespace BankaHS.BLL
         {
             return IzracunajGlavniIznosStednje() - Glavnica;
         }
+        public void AzurirajStatusStednje()
+        {
+            StednjaRepository.Instance.AzurirajStatusStednje(this);
+        }
+
+
+
     }
 }

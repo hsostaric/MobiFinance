@@ -177,17 +177,11 @@
       <DependentUpon>PocetanIzbornik.cs</DependentUpon>
     </Compile>
     <Compile Include="BLL\Validacije\Validacija.cs" />
-    <Compile Include="PAL\Stednje\FormaZaPrikazStednjiApstrakt.cs">
+    <Compile Include="PAL\Stednje\frmPrikazStednji.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PAL\Stednje\FormaZaPrikazStednjiApstrakt.Designer.cs">
-      <DependentUpon>FormaZaPrikazStednjiApstrakt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PAL\Stednje\frmAktivneStednjeKlijenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PAL\Stednje\frmAktivneStednjeKlijenta.Designer.cs">
-      <DependentUpon>frmAktivneStednjeKlijenta.cs</DependentUpon>
+    <Compile Include="PAL\Stednje\frmPrikazStednji.Designer.cs">
+      <DependentUpon>frmPrikazStednji.cs</DependentUpon>
     </Compile>
     <Compile Include="PAL\Stednje\OtvoriStednju.cs">
       <SubType>Form</SubType>
@@ -224,8 +218,8 @@
     <EmbeddedResource Include="PAL\PocetanIzbornik.resx">
       <DependentUpon>PocetanIzbornik.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PAL\Stednje\FormaZaPrikazStednjiApstrakt.resx">
-      <DependentUpon>FormaZaPrikazStednjiApstrakt.cs</DependentUpon>
+    <EmbeddedResource Include="PAL\Stednje\frmPrikazStednji.resx">
+      <DependentUpon>frmPrikazStednji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PAL\Stednje\OtvoriStednju.resx">
       <DependentUpon>OtvoriStednju.cs</DependentUpon>

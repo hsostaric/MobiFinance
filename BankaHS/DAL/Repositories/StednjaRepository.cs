@@ -41,5 +41,24 @@ namespace BankaHS.DAL.Repositories
                 db.SaveChanges();
             }
         }
+
+        public List<Stednja> DohvatiAktivneStednjeKlijenta(Klijent klijent)
+        {
+            using (var db = new BankaEntities())
+            {
+
+                db.Klijent.Attach(klijent);
+                return klijent.Stednja.Where(x => x.Status > 0).ToList();
+            }
+        }
+        public void AzurirajStatusStednje(Stednja s)
+        {
+            using (var db = new BankaEntities())
+            {
+                db.Stednja.Attach(s);
+                s.Status = 0;
+                db.SaveChanges();
+            }
+        }
     }
 }

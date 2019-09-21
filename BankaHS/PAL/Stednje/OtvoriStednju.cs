@@ -99,6 +99,16 @@ namespace BankaHS.PAL.Stednje
 
         private void uiZakljucajStednju_Click(object sender, EventArgs e)
         {
+            if ((klijentBindingSource.Current as Klijent).Equals(null))
+            {
+                MessageBox.Show("Niste odabrali klijenta !", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Klijent odabraniKlijent = klijentBindingSource.Current as Klijent;
+                frmPrikazStednji aktivneStednje = new frmPrikazStednji(odabraniKlijent);
+                aktivneStednje.ShowDialog();
+            }
 
         }
     }
