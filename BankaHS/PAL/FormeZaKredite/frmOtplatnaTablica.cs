@@ -1,4 +1,6 @@
 ﻿using BankaHS.BLL;
+using BankaHS.BLL.OstaleKlase;
+using DGVPrinterHelper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +16,7 @@ namespace BankaHS.PAL.FormeZaKredite
     public partial class frmOtplatnaTablica : Form
     {
         private Kredit_ kredit;
+        private Print print;
 
         public frmOtplatnaTablica()
         {
@@ -48,6 +51,12 @@ namespace BankaHS.PAL.FormeZaKredite
             {
                 MessageBox.Show("Došlo je do greške", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void uiIspisUPDF_Click(object sender, EventArgs e)
+        {
+            print = new Print(new DGVPrinter());
+            print.PrintToPDF(dataGridView1);
         }
     }
 }

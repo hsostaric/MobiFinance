@@ -27,6 +27,7 @@ namespace BankaHS.BLL
             RokOtplate = _rokOtplate;
             NazivKredita = _nazivKredita;
             KamatnaStopa = _ks;
+            Status = 1;
         }
 
         public int Id { get; set; }
