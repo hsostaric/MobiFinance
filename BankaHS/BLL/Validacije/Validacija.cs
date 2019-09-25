@@ -10,6 +10,11 @@ namespace BankaHS.PAL.Validacije
 {
     public class Validacija : IValidacije
     {
+        public bool nazivKredita(string naziv)
+        {
+            return naziv.Length > 0 ? true : false;
+        }
+
         public bool provjeraEmaila(string email)
         {
             string regex = @"^(?=^.{10,30}$)[A-z\d][A-z\d]*\.?[A-z\d]*@[A-z\d]+\.[A-z\d]{2,}$";
@@ -19,6 +24,13 @@ namespace BankaHS.PAL.Validacije
         public bool provjeraImena(string ime)
         {
             return (ime.Length == 0) ? false : true;
+        }
+
+        public bool provjeraKamate(string kamatnaStopa)
+        {
+            string regex = @"^((\d){1,3}(\.|\,))?\d+$";
+            return provjeraRegexa(kamatnaStopa, regex).Equals(true)
+                && double.Parse(kamatnaStopa) <= 100 ? true : false;
         }
 
         public bool provjeraKorisnickogImena(string korisnickoIme)

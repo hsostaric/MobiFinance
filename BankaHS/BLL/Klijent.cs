@@ -111,5 +111,18 @@ namespace BankaHS.BLL
         {
             return StednjaRepository.Instance.DohvatiAktivneStednjeKlijenta(this);
         }
+        public List<Stednja> StednjeKlijenta()
+        {
+            return StednjaRepository.Instance.DohvatiStednjeKlijenta(this);
+        }
+        public int brojStednjiKlijenta()
+        {
+            return StednjaRepository.Instance.DohvatiStednjeKlijenta(this).Count;
+        }
+
+        public string zaposlenje()
+        {
+            return StalnoZaposlenje.Equals(true) ? "DA" : "NE";
+        }
     }
 }

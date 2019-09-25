@@ -60,5 +60,14 @@ namespace BankaHS.DAL.Repositories
                 db.SaveChanges();
             }
         }
+        public List<Stednja> DohvatiStednjeKlijenta(Klijent k)
+        {
+            using (var db = new BankaEntities())
+            {
+
+                db.Klijent.Attach(k);
+                return k.Stednja.ToList();
+            }
+        }
     }
 }

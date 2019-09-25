@@ -47,16 +47,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label17 = new System.Windows.Forms.Label();
+            this.uiLbBrojStednji = new System.Windows.Forms.LinkLabel();
+            this.uiStednje = new System.Windows.Forms.Button();
             this.clientData.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // clientData
             // 
-            this.clientData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.clientData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.clientData.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.clientData.Controls.Add(this.uiStednje);
+            this.clientData.Controls.Add(this.uiLbBrojStednji);
+            this.clientData.Controls.Add(this.label17);
             this.clientData.Controls.Add(this.label16);
             this.clientData.Controls.Add(this.label15);
             this.clientData.Controls.Add(this.label14);
@@ -75,7 +81,7 @@
             this.clientData.Controls.Add(this.label1);
             this.clientData.Location = new System.Drawing.Point(12, 46);
             this.clientData.Name = "clientData";
-            this.clientData.Size = new System.Drawing.Size(428, 340);
+            this.clientData.Size = new System.Drawing.Size(444, 371);
             this.clientData.TabIndex = 0;
             this.clientData.TabStop = false;
             // 
@@ -128,7 +134,6 @@
             this.label12.Size = new System.Drawing.Size(60, 20);
             this.label12.TabIndex = 11;
             this.label12.Text = "label12";
-
             // 
             // label11
             // 
@@ -247,7 +252,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(472, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(488, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -258,11 +263,42 @@
             this.nazadToolStripMenuItem.Text = "Nazad";
             this.nazadToolStripMenuItem.Click += new System.EventHandler(this.nazadToolStripMenuItem_Click);
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label17.Location = new System.Drawing.Point(6, 340);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(81, 18);
+            this.label17.TabIndex = 16;
+            this.label17.Text = "Broj štednji";
+            // 
+            // uiLbBrojStednji
+            // 
+            this.uiLbBrojStednji.AutoSize = true;
+            this.uiLbBrojStednji.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.uiLbBrojStednji.Location = new System.Drawing.Point(153, 340);
+            this.uiLbBrojStednji.Name = "uiLbBrojStednji";
+            this.uiLbBrojStednji.Size = new System.Drawing.Size(73, 18);
+            this.uiLbBrojStednji.TabIndex = 17;
+            this.uiLbBrojStednji.TabStop = true;
+            this.uiLbBrojStednji.Text = "linkLabel1";
+            // 
+            // uiStednje
+            // 
+            this.uiStednje.Location = new System.Drawing.Point(232, 340);
+            this.uiStednje.Name = "uiStednje";
+            this.uiStednje.Size = new System.Drawing.Size(92, 22);
+            this.uiStednje.TabIndex = 18;
+            this.uiStednje.Text = "Sve štednje";
+            this.uiStednje.UseVisualStyleBackColor = true;
+            this.uiStednje.Click += new System.EventHandler(this.uiStednje_Click);
+            // 
             // frmFullDataOfClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 398);
+            this.ClientSize = new System.Drawing.Size(488, 429);
             this.Controls.Add(this.clientData);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -300,5 +336,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem nazadToolStripMenuItem;
+        private System.Windows.Forms.LinkLabel uiLbBrojStednji;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button uiStednje;
     }
 }

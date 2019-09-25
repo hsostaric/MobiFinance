@@ -11,9 +11,23 @@ namespace BankaHS.BLL
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Otplatna_tablica
     {
+        public Otplatna_tablica()
+        {
+
+        }
+        public Otplatna_tablica(double _kamate, double _anuitet, double _otplatnaKvota, double _ostatakDuga, double _otplaceniDio, int _brojMjeseca)
+        {
+            Kamate = _kamate;
+            Anuitet = _anuitet;
+            OtplatnaKvota = _otplatnaKvota;
+            OstatakDuga = _ostatakDuga;
+            OtplaceniDio = _otplaceniDio;
+            BrojMjeseca = _brojMjeseca;
+        }
+
         public int Id { get; set; }
         public double Kamate { get; set; }
         public double Anuitet { get; set; }
@@ -22,7 +36,7 @@ namespace BankaHS.BLL
         public double OtplaceniDio { get; set; }
         public Nullable<int> Kredit_id { get; set; }
         public int BrojMjeseca { get; set; }
-    
+
         public virtual Kredit_ Kredit_ { get; set; }
     }
 }

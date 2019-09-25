@@ -10,29 +10,31 @@ namespace BankaHS
     {
         public Form1()
         {
-            InitializeComponent();  
+            InitializeComponent();
         }
 
         private void uiGumbPrijava_Click(object sender, EventArgs e)
         {
-           
+
             if (new Zaposlenik().provjeriPrijavu(txtUserName.Text, txtPassword.Text).Equals(false))
             {
                 OcistiBoxove();
-                MessageBox.Show("Unijeli ste pogresne podatke za prijavu,\nPokušajte ponovno.","Greška",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Unijeli ste pogresne podatke za prijavu,\nPokušajte ponovno.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else {
+            else
+            {
                 OcistiBoxove();
                 PocetanIzbornik forma = new PocetanIzbornik();
                 this.Hide();
                 forma.ShowDialog();
                 this.Show();
-                
-  
+
+
             }
         }
 
-        public void OcistiBoxove() {
+        public void OcistiBoxove()
+        {
             txtPassword.ResetText();
             txtUserName.ResetText();
         }

@@ -1,6 +1,7 @@
 ﻿using BankaHS.BLL;
 using BankaHS.PAL;
 using BankaHS.PAL.AdminForme;
+using BankaHS.PAL.Krediti;
 using BankaHS.PAL.PALInterface;
 using BankaHS.PAL.Stednje;
 using System;
@@ -106,6 +107,14 @@ namespace BankaHS.PresentationLayer
         private void btnStednje_Click(object sender, EventArgs e)
         {
             OtvoriStednju forma = new OtvoriStednju();
+            this.Hide();
+            forma.ShowDialog();
+            this.Show();
+        }
+
+        private void btnKrediti_Click(object sender, EventArgs e)
+        {
+            frmZahtjevZaKredit forma = new frmZahtjevZaKredit();
             this.Hide();
             forma.ShowDialog();
             this.Show();

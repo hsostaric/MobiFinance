@@ -15,5 +15,10 @@ namespace BankaHS.PAL.PALInterface
         bool provjeraLozinke(string lozinka, string ponovljenaLozinka);
         bool provjeriOIB(string oib);
         bool provjeraEmaila(string email);
+
+        bool provjeraKamate(string kamatnaStopa);
+        bool nazivKredita(string naziv);
+
+
     }
 }

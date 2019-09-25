@@ -129,9 +129,9 @@
             this.gbIzbornik.Controls.Add(this.btnOtplatnaTablica);
             this.gbIzbornik.Controls.Add(this.tbnTransakcije);
             this.gbIzbornik.Controls.Add(this.btnTecaj);
-            this.gbIzbornik.Location = new System.Drawing.Point(77, 34);
+            this.gbIzbornik.Location = new System.Drawing.Point(51, 34);
             this.gbIzbornik.Name = "gbIzbornik";
-            this.gbIzbornik.Size = new System.Drawing.Size(759, 304);
+            this.gbIzbornik.Size = new System.Drawing.Size(830, 327);
             this.gbIzbornik.TabIndex = 6;
             this.gbIzbornik.TabStop = false;
             this.gbIzbornik.Enter += new System.EventHandler(this.gbIzbornik_Enter);
@@ -153,6 +153,7 @@
             this.btnKrediti.TabIndex = 6;
             this.btnKrediti.Text = "Zahtjev za kredit";
             this.btnKrediti.UseVisualStyleBackColor = true;
+            this.btnKrediti.Click += new System.EventHandler(this.btnKrediti_Click);
             // 
             // PocetanIzbornik
             // 

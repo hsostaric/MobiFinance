@@ -32,19 +32,23 @@ namespace BankaHS.PAL.FormsForClient
             label12.Text = odabraniKlijent.Email;
             label13.Text = odabraniKlijent.Adresa;
             label14.Text = odabraniKlijent.Kontakt;
-            label15.Text = zaposlenje((bool)odabraniKlijent.StalnoZaposlenje);
+            label15.Text = odabraniKlijent.zaposlenje();
             label16.Text = String.Format(odabraniKlijent.Primanja.ToString() + "  HRK");
+            uiLbBrojStednji.Text = odabraniKlijent.brojStednjiKlijenta().ToString();
+
+
         }
-        private string zaposlenje(bool status)
-        {
-            return status.Equals(true) ? "DA" : "NE";
-        }
+
 
         private void nazadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-
+        private void uiStednje_Click(object sender, EventArgs e)
+        {
+            frmStednjeKlijenta forma = new frmStednjeKlijenta(odabraniKlijent);
+            forma.ShowDialog();
+        }
     }
 }

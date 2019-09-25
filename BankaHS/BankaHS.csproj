@@ -138,6 +138,12 @@
     <Compile Include="PAL\AdminForme\frmZaposlenici.Designer.cs">
       <DependentUpon>frmZaposlenici.cs</DependentUpon>
     </Compile>
+    <Compile Include="PAL\FormeZaKredite\frmOtplatnaTablica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAL\FormeZaKredite\frmOtplatnaTablica.Designer.cs">
+      <DependentUpon>frmOtplatnaTablica.cs</DependentUpon>
+    </Compile>
     <Compile Include="PAL\FormsForClient\frmFullDataOfClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,12 @@
     <Compile Include="PAL\FormsForClient\frmNoviKlijent.Designer.cs">
       <DependentUpon>frmNoviKlijent.cs</DependentUpon>
     </Compile>
+    <Compile Include="PAL\FormsForClient\frmStednjeKlijenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAL\FormsForClient\frmStednjeKlijenta.Designer.cs">
+      <DependentUpon>frmStednjeKlijenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="PAL\frmTecajnaLista.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +173,12 @@
     </Compile>
     <Compile Include="PAL\FormsForClient\frmKlijenti.Designer.cs">
       <DependentUpon>frmKlijenti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAL\Krediti\frmZahtjevZaKredit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAL\Krediti\frmZahtjevZaKredit.Designer.cs">
+      <DependentUpon>frmZahtjevZaKredit.cs</DependentUpon>
     </Compile>
     <Compile Include="PAL\Login.cs">
       <SubType>Form</SubType>
@@ -200,17 +218,26 @@
     <EmbeddedResource Include="PAL\AdminForme\frmZaposlenici.resx">
       <DependentUpon>frmZaposlenici.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PAL\FormeZaKredite\frmOtplatnaTablica.resx">
+      <DependentUpon>frmOtplatnaTablica.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PAL\FormsForClient\frmFullDataOfClient.resx">
       <DependentUpon>frmFullDataOfClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PAL\FormsForClient\frmNoviKlijent.resx">
       <DependentUpon>frmNoviKlijent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PAL\FormsForClient\frmStednjeKlijenta.resx">
+      <DependentUpon>frmStednjeKlijenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PAL\frmTecajnaLista.resx">
       <DependentUpon>frmTecajnaLista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PAL\FormsForClient\frmKlijenti.resx">
       <DependentUpon>frmKlijenti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAL\Krediti\frmZahtjevZaKredit.resx">
+      <DependentUpon>frmZahtjevZaKredit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PAL\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -242,6 +269,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BankaHS.BLL.Klijent.datasource" />
+    <None Include="Properties\DataSources\BankaHS.BLL.Otplatna_tablica.datasource" />
     <None Include="Properties\DataSources\BankaHS.BLL.Stednja.datasource" />
     <None Include="Properties\DataSources\BankaHS.BLL.Tip_zaposlenika.datasource" />
     <None Include="Properties\DataSources\BankaHS.BLL.Zaposlenik.datasource" />
