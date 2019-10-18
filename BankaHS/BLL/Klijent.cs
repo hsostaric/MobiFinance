@@ -12,6 +12,7 @@ namespace BankaHS.BLL
     using BankaHS.DAL.Repositories;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     public partial class Klijent
     {
@@ -124,5 +125,34 @@ namespace BankaHS.BLL
         {
             return StalnoZaposlenje.Equals(true) ? "DA" : "NE";
         }
+
+        public string VratiKreditniRejtingKlijenta(Kredit_ kredit)
+        {
+            switch (this.StalnoZaposlenje)
+            {
+                case true:
+
+                    break;
+                case false:
+
+                    break;
+            }
+            return null;
+        }
+        public double RejtingZaZaposlene()
+        {
+            if (this.Primanja >= 6237)
+            {
+                return (double)Primanja - 4158 - SumaSvihAnuitetaKlijenta();
+
+            }
+        }
+
+        public double SumaSvihAnuitetaKlijenta()
+        {
+            return KreditRepository.Instance.DohvatiSveAktivneKrediteKorisnika(this).
+                Sum(x => x.IzracunajAnuitet(x.IzracunajRekurzivnuKamatnuStopu()));
+        }
+
     }
 }

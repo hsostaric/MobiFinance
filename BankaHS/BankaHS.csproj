@@ -121,6 +121,7 @@
       <DependentUpon>BankaEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Repositories\KlijentRepository.cs" />
+    <Compile Include="DAL\Repositories\KreditRepository.cs" />
     <Compile Include="DAL\Repositories\StednjaRepository.cs" />
     <Compile Include="DAL\Repositories\TipZaposlenikaRepository.cs" />
     <Compile Include="DAL\Repositories\ZaposlenikRepository.cs" />

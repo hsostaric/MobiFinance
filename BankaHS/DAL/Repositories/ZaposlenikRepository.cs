@@ -97,5 +97,7 @@ namespace BankaHS.ModelLayer.Repositories
                 return tip.Zaposlenik.ToList();
             }
         }
+
+
     }
 }

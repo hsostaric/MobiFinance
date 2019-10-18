@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.klijentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.nazadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,21 +49,17 @@
             this.label10 = new System.Windows.Forms.Label();
             this.uiNazivKredita = new System.Windows.Forms.TextBox();
             this.uiIzracunajKreditniRejting = new System.Windows.Forms.Button();
-            this.uiKreditniRizik = new System.Windows.Forms.ProgressBar();
             this.uiOtvoriKredit = new System.Windows.Forms.Button();
             this.uiIzradiTablicu = new System.Windows.Forms.Button();
-            this.imeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prezimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oIBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kontaktDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stalnoZaposlenjeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primanjaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.klijentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label11 = new System.Windows.Forms.Label();
+            this.uiKreditniRejting = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.uiKreditnaSposobnost = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.klijentBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiGlavnicaKredita)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiBrojAnuiteta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.klijentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -72,18 +69,11 @@
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.imeDataGridViewTextBoxColumn,
-            this.prezimeDataGridViewTextBoxColumn,
-            this.oIBDataGridViewTextBoxColumn,
-            this.kontaktDataGridViewTextBoxColumn,
-            this.stalnoZaposlenjeDataGridViewTextBoxColumn,
-            this.primanjaDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.klijentBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(49, 53);
             this.dataGridView1.MultiSelect = false;
@@ -283,13 +273,7 @@
             this.uiIzracunajKreditniRejting.TabIndex = 17;
             this.uiIzracunajKreditniRejting.Text = "Izračunaj kreditni rejting";
             this.uiIzracunajKreditniRejting.UseVisualStyleBackColor = true;
-            // 
-            // uiKreditniRizik
-            // 
-            this.uiKreditniRizik.Location = new System.Drawing.Point(381, 277);
-            this.uiKreditniRizik.Name = "uiKreditniRizik";
-            this.uiKreditniRizik.Size = new System.Drawing.Size(229, 40);
-            this.uiKreditniRizik.TabIndex = 18;
+            this.uiIzracunajKreditniRejting.Click += new System.EventHandler(this.uiIzracunajKreditniRejting_Click);
             // 
             // uiOtvoriKredit
             // 
@@ -299,6 +283,7 @@
             this.uiOtvoriKredit.TabIndex = 19;
             this.uiOtvoriKredit.Text = "Utvori kredit";
             this.uiOtvoriKredit.UseVisualStyleBackColor = true;
+            this.uiOtvoriKredit.Click += new System.EventHandler(this.uiOtvoriKredit_Click);
             // 
             // uiIzradiTablicu
             // 
@@ -310,54 +295,55 @@
             this.uiIzradiTablicu.UseVisualStyleBackColor = true;
             this.uiIzradiTablicu.Click += new System.EventHandler(this.uiIzradiTablicu_Click);
             // 
-            // imeDataGridViewTextBoxColumn
+            // label11
             // 
-            this.imeDataGridViewTextBoxColumn.DataPropertyName = "Ime";
-            this.imeDataGridViewTextBoxColumn.HeaderText = "Ime";
-            this.imeDataGridViewTextBoxColumn.Name = "imeDataGridViewTextBoxColumn";
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label11.Location = new System.Drawing.Point(378, 275);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(94, 16);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "Kreditni rejting:";
             // 
-            // prezimeDataGridViewTextBoxColumn
+            // uiKreditniRejting
             // 
-            this.prezimeDataGridViewTextBoxColumn.DataPropertyName = "Prezime";
-            this.prezimeDataGridViewTextBoxColumn.HeaderText = "Prezime";
-            this.prezimeDataGridViewTextBoxColumn.Name = "prezimeDataGridViewTextBoxColumn";
+            this.uiKreditniRejting.AutoSize = true;
+            this.uiKreditniRejting.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.uiKreditniRejting.Location = new System.Drawing.Point(528, 277);
+            this.uiKreditniRejting.Name = "uiKreditniRejting";
+            this.uiKreditniRejting.Size = new System.Drawing.Size(0, 16);
+            this.uiKreditniRejting.TabIndex = 22;
             // 
-            // oIBDataGridViewTextBoxColumn
+            // label12
             // 
-            this.oIBDataGridViewTextBoxColumn.DataPropertyName = "OIB";
-            this.oIBDataGridViewTextBoxColumn.HeaderText = "OIB";
-            this.oIBDataGridViewTextBoxColumn.Name = "oIBDataGridViewTextBoxColumn";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label12.Location = new System.Drawing.Point(376, 312);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(142, 15);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "Kreditabilna sposobnost:";
             // 
-            // kontaktDataGridViewTextBoxColumn
+            // uiKreditnaSposobnost
             // 
-            this.kontaktDataGridViewTextBoxColumn.DataPropertyName = "Kontakt";
-            this.kontaktDataGridViewTextBoxColumn.HeaderText = "Kontakt";
-            this.kontaktDataGridViewTextBoxColumn.Name = "kontaktDataGridViewTextBoxColumn";
-            // 
-            // stalnoZaposlenjeDataGridViewTextBoxColumn
-            // 
-            this.stalnoZaposlenjeDataGridViewTextBoxColumn.DataPropertyName = "StalnoZaposlenje";
-            this.stalnoZaposlenjeDataGridViewTextBoxColumn.HeaderText = "Zaposlenje";
-            this.stalnoZaposlenjeDataGridViewTextBoxColumn.Name = "stalnoZaposlenjeDataGridViewTextBoxColumn";
-            // 
-            // primanjaDataGridViewTextBoxColumn
-            // 
-            this.primanjaDataGridViewTextBoxColumn.DataPropertyName = "Primanja";
-            this.primanjaDataGridViewTextBoxColumn.HeaderText = "Primanja";
-            this.primanjaDataGridViewTextBoxColumn.Name = "primanjaDataGridViewTextBoxColumn";
-            // 
-            // klijentBindingSource
-            // 
-            this.klijentBindingSource.DataSource = typeof(BankaHS.BLL.Klijent);
+            this.uiKreditnaSposobnost.AutoSize = true;
+            this.uiKreditnaSposobnost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.uiKreditnaSposobnost.Location = new System.Drawing.Point(528, 314);
+            this.uiKreditnaSposobnost.Name = "uiKreditnaSposobnost";
+            this.uiKreditnaSposobnost.Size = new System.Drawing.Size(0, 15);
+            this.uiKreditnaSposobnost.TabIndex = 24;
             // 
             // frmZahtjevZaKredit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(837, 456);
+            this.Controls.Add(this.uiKreditnaSposobnost);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.uiKreditniRejting);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.uiIzradiTablicu);
             this.Controls.Add(this.uiOtvoriKredit);
-            this.Controls.Add(this.uiKreditniRizik);
             this.Controls.Add(this.uiIzracunajKreditniRejting);
             this.Controls.Add(this.uiNazivKredita);
             this.Controls.Add(this.label10);
@@ -382,11 +368,11 @@
             this.Text = "frmZahtjevZaKredit";
             this.Load += new System.EventHandler(this.frmZahtjevZaKredit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.klijentBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiGlavnicaKredita)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiBrojAnuiteta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.klijentBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,8 +406,11 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox uiNazivKredita;
         private System.Windows.Forms.Button uiIzracunajKreditniRejting;
-        private System.Windows.Forms.ProgressBar uiKreditniRizik;
         private System.Windows.Forms.Button uiOtvoriKredit;
         private System.Windows.Forms.Button uiIzradiTablicu;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label uiKreditniRejting;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label uiKreditnaSposobnost;
     }
 }

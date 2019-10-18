@@ -110,5 +110,7 @@ namespace BankaHS.BLL
             this.KolekcijaZapisa.Add(otplata);
         }
 
+
+
     }
 }

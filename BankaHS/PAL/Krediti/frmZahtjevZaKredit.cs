@@ -17,6 +17,7 @@ namespace BankaHS.PAL.Krediti
     public partial class frmZahtjevZaKredit : Form
     {
         private IValidacije validacija;
+        private Klijent odabraniKlijent;
         public frmZahtjevZaKredit()
         {
             validacija = new Validacija();
@@ -32,9 +33,20 @@ namespace BankaHS.PAL.Krediti
 
         private void frmZahtjevZaKredit_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                prikaziKlijente();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Greška kod dohvaćanja klijenta iz baze. ", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
+        private void prikaziKlijente()
+        {
+            klijentBindingSource.DataSource = null;
+            klijentBindingSource.DataSource = Klijent.DohvatiPopisSvihKlijenata();
+        }
         private void uiIzradiTablicu_Click(object sender, EventArgs e)
         {
             if (validacija.nazivKredita(uiNazivKredita.Text).Equals(true)
@@ -48,6 +60,26 @@ namespace BankaHS.PAL.Krediti
             {
                 MessageBox.Show("Morate popuniti sva polja !!!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void uiIzracunajKreditniRejting_Click(object sender, EventArgs e)
+        {
+            if (validacija.nazivKredita(uiNazivKredita.Text).Equals(true)
+                && validacija.provjeraKamate(uiKamatnaStopa.Text).Equals(true))
+            {
+                odabraniKlijent = (Klijent)klijentBindingSource.Current;
+                uiKreditniRejting.Text = odabraniKlijent.VratiKreditniRejtingKlijenta(new Kredit_(uiDatumPocetka.Value, double.Parse(uiKamatnaStopa.Text),
+                     double.Parse(uiGlavnicaKredita.Value.ToString()), int.Parse(uiBrojAnuiteta.Value.ToString()), uiNazivKredita.Text)).ToString();
+            }
+            else
+            {
+                MessageBox.Show("Morate popuniti sva polja !!!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void uiOtvoriKredit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
